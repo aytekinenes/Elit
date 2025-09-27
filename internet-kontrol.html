@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>İnternet üzerinden kontrol | Elite LED</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="blog-common.css" />
+    <style>
+        /* Premium card styling for blog pages */
+        .premium-wrapper {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 18px;
+        }
+
+        .premium-card {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 20px;
+            align-items: stretch;
+            background: linear-gradient(180deg, #ffffff, #fbfdff);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(10, 20, 40, 0.08);
+            border: 1px solid rgba(15, 46, 78, 0.04);
+        }
+
+        .premium-card .card-media {
+            background-image: url('img/car2.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+        }
+
+        .premium-card .card-content {
+            padding: 26px 26px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .premium-card h1 {
+            margin: 0 0 8px 0;
+            font-size: 1.8rem;
+            color: #07223a;
+            line-height: 1.1;
+        }
+
+        .premium-card .subtitle {
+            margin: 0 0 14px 0;
+            color: #3b5368;
+            font-weight: 600;
+        }
+
+        .premium-card p {
+            margin: 0 0 12px 0;
+            color: #34495a;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 820px) {
+            .premium-card {
+                grid-template-columns: 1fr;
+            }
+
+            .premium-card .card-media {
+                min-height: 200px;
+            }
+
+            .premium-card h1 {
+                font-size: 1.4rem;
+            }
+        }
+
+        .single-card-wrapper {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 18px;
+        }
+
+        .single-card {
+            background: linear-gradient(180deg, #ffffff, #fbfdff);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(10, 20, 40, 0.08);
+            border: 1px solid rgba(15, 46, 78, 0.04);
+        }
+
+        .single-card .card-image {
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+        }
+
+        .single-card .card-content {
+            padding: 26px 26px 28px;
+        }
+
+        .single-card h1 {
+            margin: 0 0 8px 0;
+            font-size: 1.8rem;
+            color: #07223a;
+            line-height: 1.1;
+        }
+
+        .single-card .subtitle {
+            margin: 0 0 14px 0;
+            color: #3b5368;
+            font-weight: 600;
+        }
+
+        .single-card p {
+            margin: 0 0 12px 0;
+            color: #34495a;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="container nav__wrap">
+            <a class="brand" href="index.html">
+                <img src="img/newLogo.PNG" alt="Elite LED" />
+                <span>Elite LED</span>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="nav__checkbox" aria-label="Menüyü aç/kapat" />
+            <label for="menu-toggle" class="nav__hamburger" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </label>
+
+            <ul class="nav__links" id="primary-menu">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="service.html">Hizmetlerimiz</a></li>
+                <li><a href="index.html#portfolio">Çalışmalar</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="index.html#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="header-spacer"></div>
+
+    <main class="container">
+        <div class="single-card-wrapper">
+            <article class="single-card" role="article" aria-labelledby="internet-title">
+                <div class="card-image" role="img" aria-label="uzaktan kontrol"
+                    style="background-image: url('img/car2.jpg')">
+                </div>
+
+                <div class="card-content">
+                    <h1 id="internet-title">İnternet üzerinden kontrol</h1>
+                    <div class="subtitle">Uzaktan yönetim ve güvenlik</div>
+
+                    <p>Kontrol kartları (Player/Routers) genelde Ethernet/Wi‑Fi üzerinden sunuculara bağlanır. Uzaktan
+                        içerik
+                        yönetimi için kontrol yazılımları veya bulut servisleri kullanılır; güvenlik için VPN veya
+                        güvenli bağlantı
+                        tavsiye edilir.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div>© <span id="yil"></span> Elite LED</div>
+            <div class="pill pill--muted">İstanbul, Türkiye</div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('yil').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

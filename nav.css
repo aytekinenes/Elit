@@ -1,0 +1,134 @@
+:root {
+    --nav-h: 72px;
+    --pad-x: 56px;
+    --brand: #ffcc00;
+    --brand-ink: #121212;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-h)
+}
+
+.container {
+    width: min(1200px, 100% - 2*var(--pad-x));
+    margin-inline: auto
+}
+
+/* NAV (CSS-only hamburger) — Hizmetler sayfasındaki ile aynı */
+.nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: var(--nav-h);
+    z-index: 1000;
+    background: #000;
+    color: #fff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.nav__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.brand img {
+    height: 48px;
+    width: auto;
+    border-radius: 8px
+}
+
+.brand span {
+    font-weight: 800;
+    letter-spacing: .3px
+}
+
+.nav__checkbox {
+    display: none
+}
+
+.nav__hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px
+}
+
+.nav__hamburger span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px
+}
+
+.nav__hamburger span+span {
+    margin-top: 5px
+}
+
+.nav__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 0;
+    padding: 0
+}
+
+.nav__links a {
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background .25s ease;
+}
+
+.nav__links a:hover,
+.nav__links a:focus {
+    background: var(--brand);
+    color: var(--brand-ink);
+    outline: none
+}
+
+/* İçeriğin NAV’a çarpmaması için */
+.header-spacer {
+    height: var(--nav-h)
+}
+
+/* Mobil menü */
+@media (max-width:768px) {
+    .nav__hamburger {
+        display: block
+    }
+
+    .nav__links {
+        position: absolute;
+        top: var(--nav-h);
+        right: 0;
+        background: rgba(0, 0, 0, .95);
+        display: none;
+        flex-direction: column;
+        width: min(240px, 90vw);
+        padding: 14px;
+        border-bottom-left-radius: 12px;
+        border-left: 1px solid rgba(255, 255, 255, .08);
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .nav__checkbox:checked+.nav__hamburger+.nav__links {
+        display: flex
+    }
+}
