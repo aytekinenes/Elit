@@ -85,8 +85,9 @@
                 <span>Elite LED</span>
             </a>
 
-            <input type="checkbox" id="menu-toggle" class="nav__checkbox" aria-label="Menüyü aç/kapat" />
-            <label for="menu-toggle" class="nav__hamburger" aria-hidden="true">
+            <input type="checkbox" id="menu-toggle" class="nav__checkbox" aria-label="Menüyü aç/kapat"
+                aria-controls="primary-menu" aria-expanded="false" />
+            <label for="menu-toggle" class="nav__hamburger">
                 <span></span><span></span><span></span>
             </label>
 
@@ -97,6 +98,19 @@
                 <li><a href="blog.html" class="active">Blog</a></li>
                 <li><a href="index.html#iletisim">İletişim</a></li>
             </ul>
+        </div>
+        <script>
+            (function () {
+                var checkbox = document.getElementById('menu-toggle');
+                var menu = document.getElementById('primary-menu');
+                var hamburger = document.querySelector('.nav__hamburger');
+                if (checkbox) {
+                    checkbox.addEventListener('change', function () { checkbox.setAttribute('aria-expanded', checkbox.checked ? 'true' : 'false'); });
+                    if (menu) { Array.prototype.forEach.call(menu.querySelectorAll('a'), function (a) { a.addEventListener('click', function () { checkbox.checked = false; checkbox.setAttribute('aria-expanded', 'false'); }); }); }
+                    if (hamburger) { hamburger.setAttribute('tabindex', '0'); hamburger.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); checkbox.checked = !checkbox.checked; checkbox.dispatchEvent(new Event('change')); } }); }
+                }
+            })();
+        </script>
         </div>
     </nav>
     <div class="header-spacer"></div>

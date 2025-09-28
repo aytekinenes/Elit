@@ -316,17 +316,25 @@ a {
     top: var(--nav-h);
     right: 0;
     background: rgba(0, 0, 0, .95);
-    display: none;
+    display: flex;
     flex-direction: column;
+    gap: 12px;
     width: min(240px, 90vw);
     padding: 14px;
     border-bottom-left-radius: 12px;
     border-left: 1px solid rgba(255, 255, 255, .08);
-    border-bottom: 1px solid rgba(255, 255, 255, .08)
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    transform-origin: top right;
+    transform: translateY(-8px) scaleY(.98);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .22s ease, opacity .18s ease;
   }
 
   .nav__checkbox:checked+.nav__hamburger+.nav__links {
-    display: flex
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
