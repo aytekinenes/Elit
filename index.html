@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Elit LED | Anasayfa</title>
   <meta name="description" content="LED tabela ve kayan yazı sistemlerinde tasarım, üretim, montaj ve teknik destek." />
   <link rel="icon" href="img/NewLogo.jpg" />
+  <!-- NAV her sayfada ilk sırada -->
+  <link rel="stylesheet" href="nav.css">
+  <!-- Ortak sayfa stilleri -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -20,8 +22,8 @@
         <span>Elite LED</span>
       </a>
 
-      <input type="checkbox" id="menu-toggle" class="nav__checkbox" aria-label="Menüyü aç/kapat"
-        aria-controls="primary-menu" aria-expanded="false" />
+      <input type="checkbox" id="menu-toggle" class="nav__checkbox"
+             aria-label="Menüyü aç/kapat" aria-controls="primary-menu" aria-expanded="false" />
       <label for="menu-toggle" class="nav__hamburger">
         <span></span><span></span><span></span>
       </label>
@@ -34,55 +36,54 @@
         <li><a href="blog.html">Blog</a></li>
         <li><a href="#iletisim">İletişim</a></li>
       </ul>
-
     </div>
   </nav>
   <div class="header-spacer"></div>
 
+  <!-- Hamburger erişilebilirliği -->
   <script>
     (function () {
       var checkbox = document.getElementById('menu-toggle');
       var menu = document.getElementById('primary-menu');
       var hamburger = document.querySelector('.nav__hamburger');
 
-      if (checkbox) {
-        checkbox.addEventListener('change', function () {
-          checkbox.setAttribute('aria-expanded', checkbox.checked ? 'true' : 'false');
+      if (!checkbox) return;
+
+      checkbox.addEventListener('change', function () {
+        checkbox.setAttribute('aria-expanded', checkbox.checked ? 'true' : 'false');
+      });
+
+      if (menu) {
+        menu.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            checkbox.checked = false;
+            checkbox.setAttribute('aria-expanded', 'false');
+          });
         });
+      }
 
-        if (menu) {
-          Array.prototype.forEach.call(menu.querySelectorAll('a'), function (a) {
-            a.addEventListener('click', function () {
-              checkbox.checked = false;
-              checkbox.setAttribute('aria-expanded', 'false');
-            });
-          });
-        }
-
-        if (hamburger) {
-          hamburger.setAttribute('tabindex', '0');
-          hamburger.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              checkbox.checked = !checkbox.checked;
-              checkbox.dispatchEvent(new Event('change'));
-            }
-          });
-        }
+      if (hamburger) {
+        hamburger.setAttribute('tabindex', '0');
+        hamburger.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            checkbox.checked = !checkbox.checked;
+            checkbox.dispatchEvent(new Event('change'));
+          }
+        });
       }
     })();
   </script>
 
-
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <header id="anasayfa" class="hero">
     <video autoplay muted loop playsinline preload="metadata" poster="img/home.png">
       <source src="img/bgvideo.mp4" type="video/mp4" />
     </video>
     <div class="overlay">
       <h1>LED Tabela ve Kayan Yazı Sistemleri</h1>
-      <p>Yılların tecrübesi ve rekabetçi fiyat politikamızla LED teknolojilerinde uçtan uca çözümler sunuyoruz. Tasarım,
-        üretim, kurulum ve teknik destek tek bir noktada.</p>
+      <p>Yılların tecrübesi ve rekabetçi fiyat politikamızla LED teknolojilerinde uçtan uca çözümler sunuyoruz.
+         Tasarım, üretim, kurulum ve teknik destek tek bir noktada.</p>
       <div class="hero-cta">
         <a href="#portfolio" class="btn">Çalışmalarımıza Göz At</a>
         <a href="#iletisim" class="btn ghost">Teklif Al</a>
@@ -90,34 +91,44 @@
     </div>
   </header>
 
-  <!-- PORTFOLIO -->
+  <!-- ===== PORTFOLIO ===== -->
   <section class="portfolio" id="portfolio">
     <h2 class="section-title">Çalışmalarımız</h2>
     <div class="portfolio-grid">
-      <figure class="card"><video autoplay muted loop playsinline preload="metadata">
+      <figure class="card">
+        <video autoplay muted loop playsinline preload="metadata">
           <source src="img/vid4-v.mp4" type="video/mp4" />
-        </video></figure>
+        </video>
+      </figure>
       <figure class="card"><img src="img/res1.jpg" alt="Dış cephe LED tabela" loading="lazy" /></figure>
-      <figure class="card"><video autoplay muted loop playsinline preload="metadata">
+      <figure class="card">
+        <video autoplay muted loop playsinline preload="metadata">
           <source src="img/vid5-h.mp4" type="video/mp4" />
-        </video></figure>
+        </video>
+      </figure>
       <figure class="card"><img src="img/photo2.jpg" alt="İç mekân LED menü board" loading="lazy" /></figure>
-      <figure class="card"><video autoplay muted loop playsinline preload="metadata">
+      <figure class="card">
+        <video autoplay muted loop playsinline preload="metadata">
           <source src="img/vid3-v.mp4" type="video/mp4" />
-        </video></figure>
+        </video>
+      </figure>
       <figure class="card"><img src="img/res2.jpg" alt="Araç üstü kayan yazı" loading="lazy" /></figure>
-      <figure class="card"><video autoplay muted loop playsinline preload="metadata">
+      <figure class="card">
+        <video autoplay muted loop playsinline preload="metadata">
           <source src="img/vid1-v.mp4" type="video/mp4" />
-        </video></figure>
+        </video>
+      </figure>
       <figure class="card"><img src="img/photo1.jpg" alt="Dış cephe LED tabela" loading="lazy" /></figure>
-      <figure class="card"><video autoplay muted loop playsinline preload="metadata">
+      <figure class="card">
+        <video autoplay muted loop playsinline preload="metadata">
           <source src="img/vid2-h.mp4" type="video/mp4" />
-        </video></figure>
+        </video>
+      </figure>
       <figure class="card"><img src="img/res3.jpg" alt="İç mekân LED menü board" loading="lazy" /></figure>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ===== CONTACT ===== -->
   <section id="iletisim" class="contact">
     <h2 class="section-title">İletişim</h2>
     <p class="muted">Telefon ve e-postayla bize ulaşabilirsiniz. WhatsApp için sağ üstteki kısayolu kullanın.</p>
@@ -127,16 +138,13 @@
     <div class="social-icons">
       <a class="icon ig" href="https://instagram.com/elitled" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 .001 10A5 5 0 0 0 12 7zm0 2.2a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6zM18.5 6.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z" />
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 .001 10A5 5 0 0 0 12 7zm0 2.2a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6zM18.5 6.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z" />
         </svg>
         <span>Instagram</span>
       </a>
-      <a class="icon in" href="https://www.linkedin.com/company/elitled" target="_blank" rel="noopener"
-        aria-label="LinkedIn">
+      <a class="icon in" href="https://www.linkedin.com/company/elitled" target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.1c.5-1 1.9-2.1 3.9-2.1 4.2 0 5 2.7 5 6.1V23h-4v-6.5c0-1.6 0-3.6-2.2-3.6-2.2 0-2.5 1.7-2.5 3.5V23h-4V8.5z" />
+          <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.1c.5-1 1.9-2.1 3.9-2.1 4.2 0 5 2.7 5 6.1V23h-4v-6.5c0-1.6 0-3.6-2.2-3.6-2.2 0-2.5 1.7-2.5 3.5V23h-4V8.5z" />
         </svg>
         <span>LinkedIn</span>
       </a>
@@ -145,12 +153,11 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div>© <span id="yil"></span> Elite LED</div>
+      <div>© <span id="yil"></span> Elit LED</div>
       <div class="pill">İstanbul, Türkiye</div>
     </div>
   </footer>
 
   <script>document.getElementById('yil').textContent = new Date().getFullYear();</script>
 </body>
-
 </html>

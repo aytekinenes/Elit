@@ -4,7 +4,6 @@
   --gap: 24px;
   --radius: 14px;
   --shadow: 0 10px 30px rgba(0, 0, 0, .15);
-  --bg-dark: #0d0d0d;
   --bg-light: #f7f7f8;
   --ink: #111;
   --muted: #6b7280;
@@ -23,10 +22,9 @@ html {
   scroll-padding-top: var(--nav-h)
 }
 
-/* avoid accidental horizontal overflow from off-canvas elements */
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: hidden
 }
 
 body {
@@ -47,7 +45,7 @@ a {
   color: inherit
 }
 
-/* Yardımcılar */
+/* helpers */
 .section-title {
   font-size: clamp(1.6rem, 2.8vw, 2.3rem);
   font-weight: 800;
@@ -59,38 +57,33 @@ a {
   color: var(--muted)
 }
 
+.container,
 .footer-inner,
-.portfolio-grid,
-.container {
-  /* predictable max width and internal padding */
+.portfolio-grid {
   max-width: 1200px;
   padding-inline: var(--pad-x);
   margin-inline: auto
 }
 
-/* ===== NAVBAR (Hizmetler sayfasındaki ile aynı yapı) ===== */
+/* ===== NAVBAR (tek kaynak) ===== */
 .nav {
   position: fixed;
   inset: 0 0 auto 0;
   height: var(--nav-h);
   z-index: 1000;
   background: #000;
+  /* tam siyah */
   color: #fff;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
 .nav__wrap {
+  position: relative;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%
-}
-
-/* make wrapper a positioning context for absolute hamburger */
-.nav__wrap {
-  position: relative;
+  gap: var(--gap)
 }
 
 .brand {
@@ -100,7 +93,7 @@ a {
 }
 
 .brand img {
-  height: 48px;
+  height: 44px;
   width: auto;
   border-radius: 8px
 }
@@ -126,28 +119,25 @@ a {
   width: 26px;
   height: 3px;
   background: #fff;
-  border-radius: 2px
+  border-radius: 2px;
+  transition: transform .22s ease, opacity .18s ease
 }
 
 .nav__hamburger span+span {
   margin-top: 5px
 }
 
-/* animate hamburger when checked */
-.nav__hamburger span {
-  transition: transform .22s ease, opacity .18s ease;
-}
-
+/* hamburger -> X */
 .nav__checkbox:checked+.nav__hamburger span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg)
 }
 
 .nav__checkbox:checked+.nav__hamburger span:nth-child(2) {
-  opacity: 0;
+  opacity: 0
 }
 
 .nav__checkbox:checked+.nav__hamburger span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg)
 }
 
 .nav__links {
@@ -163,8 +153,7 @@ a {
   color: #fff;
   padding: 8px 10px;
   border-radius: 10px;
-  transition: background .25s ease;
-  text-decoration: none;
+  transition: background .25s ease
 }
 
 .nav__links a:hover,
@@ -174,27 +163,9 @@ a {
   outline: none
 }
 
-/* İçeriğin NAV’a çarpmaması için */
+/* içerik nav’a çarpmasın */
 .header-spacer {
   height: var(--nav-h)
-}
-
-/* WhatsApp butonu (sağda) */
-.whatsapp-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  background: #25D366;
-  color: #fff;
-  border: none;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, .18)
-}
-
-.whatsapp-btn svg {
-  width: 22px;
-  height: 22px
 }
 
 /* Mobil menü */
@@ -204,14 +175,7 @@ a {
   }
 
   .nav__hamburger {
-    display: block;
-    /* place the hamburger at the viewport right edge on small screens */
-    position: fixed;
-    right: 16px;
-    top: calc(var(--nav-h) / 2);
-    transform: translateY(-50%);
-    z-index: 1101;
-    /* above nav */
+    display: block
   }
 
   .nav__links {
@@ -221,6 +185,7 @@ a {
     background: rgba(0, 0, 0, .95);
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     gap: 12px;
     width: min(240px, 90vw);
     padding: 14px;
@@ -241,11 +206,11 @@ a {
   }
 
   .brand span {
-    display: none;
+    display: none
   }
 
   .brand img {
-    height: 40px;
+    height: 40px
   }
 }
 
@@ -331,17 +296,15 @@ a {
 .portfolio-grid {
   display: grid;
   gap: 24px;
-  /* create as many columns as will fit; each column is at least 300px wide */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: auto;
-  align-content: start;
+  align-content: start
 }
 
-/* cards should fill their grid cell; don't force huge max-widths */
 .portfolio-grid .card {
   width: 100%;
   max-width: none;
-  display: block;
+  display: block
 }
 
 .card {
@@ -357,20 +320,16 @@ a {
   display: block;
   width: 100%;
   height: auto;
-  /* let media determine its own height so card keeps flow */
   object-fit: cover;
-  aspect-ratio: 4/3;
-  position: relative;
-  /* ensure media aren't absolutely positioned */
+  aspect-ratio: 4/3
 }
 
 @media (min-width:1000px) {
 
-  /* cap media height on large viewports for nicer composition */
   .card img,
   .card video {
     max-height: 420px;
-    height: auto;
+    height: auto
   }
 }
 
@@ -440,7 +399,7 @@ a {
   flex-wrap: wrap
 }
 
-/* ===== responsive tweaks ===== */
+/* responsive tweaks */
 @media (max-width:520px) {
 
   .card img,

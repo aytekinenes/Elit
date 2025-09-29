@@ -48,7 +48,7 @@ html {
 }
 
 .brand img {
-    height: 48px;
+    height: 120px !important;
     width: auto;
     border-radius: 8px
 }
