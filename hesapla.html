@@ -56,26 +56,34 @@
       <div><label for="genislik">Genişlik (cm)</label><select id="genislik"></select></div>
       <div><label for="yukseklik">Yükseklik (cm)</label><select id="yukseklik"></select></div>
     </div>
-    <div id="pixelInfo" class="info-box">Ekran Çözünürlüğü: Lütfen seçim yapınız...</div>
-    <div id="energyInfo" class="info-box">Tahmini Enerji Tüketimi: Lütfen seçim yapınız...</div>
+    <div id="pixelInfo" class="info-box">...</div>
+    <div id="energyInfo" class="info-box">...</div>
     <button onclick="hesapla()">Fiyat Hesapla</button>
     <div class="result" id="sonuc"></div>
     
-    <div id="teklifFormu">
+    <div id="teklifWrapper">
         <div class="offer-note">
             <p><strong>Önemli Not:</strong> Fiyatlar tahmini olup, nihai teklifi içermemektedir.</p>
             <p>Nihai teklif için lütfen aşağıdaki formu doldurunuz.</p>
         </div>
-        <h3>Nihai Teklif İçin Bilgilerinizi Girin</h3>
-        <label for="musteriAd">Adınız (İsteğe Bağlı)</label>
-        <input type="text" id="musteriAd" placeholder="Adınız">
-        <label for="musteriSoyad">Soyadınız (İsteğe Bağlı)</label>
-        <input type="text" id="musteriSoyad" placeholder="Soyadınız">
-        <label for="musteriIl">İl (Zorunlu)</label>
-        <select id="musteriIl" required><option value="">Lütfen Bir İl Seçin</option></select>
-        <label for="musteriMail">E-posta Adresiniz (İsteğe Bağlı)</label>
-        <input type="email" id="musteriMail" placeholder="ornek@mail.com">
-        <button id="whatsappButton">WhatsApp Üzerinden Teklif İste</button>
+        <form id="contactForm" method="POST">
+            <h3>Nihai Teklif İçin Bilgilerinizi Girin</h3>
+            <label for="musteriAd">Adınız (İsteğe Bağlı)</label>
+            <input type="text" id="musteriAd" name="Ad" placeholder="Adınız">
+            <label for="musteriSoyad">Soyadınız (İsteğe Bağlı)</label>
+            <input type="text" id="musteriSoyad" name="Soyad" placeholder="Soyadınız">
+            <label id="telefonLabel" for="musteriTelefon">Telefon</label>
+            <input type="tel" id="musteriTelefon" name="Telefon" placeholder="5xx xxx xx xx">
+            <label for="musteriIl">İl (Zorunlu)</label>
+            <select id="musteriIl" name="İl" required><option value="">Lütfen Bir İl Seçin</option></select>
+            <label for="musteriMail">E-posta Adresiniz (İsteğe Bağlı)</label>
+            <input type="email" id="musteriMail" name="E-posta" placeholder="ornek@mail.com">
+            <input type="hidden" name="_subject" value="Web Siteden Yeni LED Ekran Teklif İsteği!">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="Proje Özeti" id="projeOzetiInput">
+            
+            <button type="button" id="teklifButton">Teklif Al</button>
+        </form>
     </div>
   </div>
 
@@ -99,16 +107,20 @@
     var pixelInfoDiv = document.getElementById("pixelInfo");
     var energyInfoDiv = document.getElementById("energyInfo");
     var sonucDiv = document.getElementById("sonuc");
-    var teklifFormu = document.getElementById("teklifFormu");
-    var whatsappButton = document.getElementById("whatsappButton");
+    var teklifWrapper = document.getElementById("teklifWrapper");
+    var teklifButton = document.getElementById("teklifButton");
     var musteriIlSelect = document.getElementById("musteriIl");
+    var musteriTelefon = document.getElementById("musteriTelefon");
+    var telefonLabel = document.getElementById("telefonLabel");
+    var contactForm = document.getElementById("contactForm");
+
+    function isMobile() { return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent); }
 
     function populateIller() {
         var iller = ["Adana","Adıyaman","Afyonkarahisar","Ağrı","Amasya","Ankara","Antalya","Artvin","Aydın","Balıkesir","Bilecik","Bingöl","Bitlis","Bolu","Burdur","Bursa","Çanakkale","Çankırı","Çorum","Denizli","Diyarbakır","Edirne","Elazığ","Erzincan","Erzurum","Eskişehir","Gaziantep","Giresun","Gümüşhane","Hakkari","Hatay","Isparta","Mersin","İstanbul","İzmir","Kars","Kastamonu","Kayseri","Kırklareli","Kırşehir","Kocaeli","Konya","Kütahya","Malatya","Manisa","Kahramanmaraş","Mardin","Muğla","Muş","Nevşehir","Niğde","Ordu","Rize","Sakarya","Samsun","Siirt","Sinop","Sivas","Tekirdağ","Tokat","Trabzon","Tunceli","Şanlıurfa","Uşak","Van","Yozgat","Zonguldak","Aksaray","Bayburt","Karaman","Kırıkkale","Batman","Şırnak","Bartın","Ardahan","Iğdır","Yalova","Karabük","Kilis","Osmaniye","Düzce"];
         var oncelikli = ["İstanbul", "Ankara", "İzmir"];
         oncelikli.forEach(function(il){ musteriIlSelect.add(new Option(il, il)); });
-        musteriIlSelect.add(new Option("---", "", true, true));
-        musteriIlSelect.options[musteriIlSelect.options.length - 1].disabled = true;
+        var ayirici = new Option("---", ""); ayirici.disabled = true; musteriIlSelect.add(ayirici);
         var digerIller = iller.filter(function(il){ return oncelikli.indexOf(il) < 0; }).sort();
         digerIller.forEach(function(il){ musteriIlSelect.add(new Option(il, il)); });
     }
@@ -146,7 +158,7 @@
     function guncellePikselBilgisi() {
         if (!genislikSelect.value || !yukseklikSelect.value) return; 
         var alan = alanSelect.value; var pikselKodu = pikselSelect.value; var genislik = parseInt(genislikSelect.value); var yukseklik = parseInt(yukseklikSelect.value);
-        var modulInfo = PRICES.modules[alan][pikselKodu]; if (!modulInfo) { pixelInfoDiv.innerHTML = 'Bu panel türü seçilen mekan için uygun değil.'; return; }
+        var modulInfo = PRICES.modules[alan][pikselKodu]; if (!modulInfo) { pixelInfoDiv.innerHTML = '...'; return; }
         var modulSayisiX = Math.ceil(genislik / modulGenislik); var modulSayisiY = Math.ceil(yukseklik / modulYukseklik);
         var toplamPikselX = modulSayisiX * modulInfo.piksel.w; var toplamPikselY = modulSayisiY * modulInfo.piksel.h;
         pixelInfoDiv.innerHTML = "Ekran Çözünürlüğü: <strong>" + toplamPikselX + " x " + toplamPikselY + " Piksel</strong>";
@@ -164,12 +176,7 @@
             "<small>Not: Tüketim değeri ekrandaki tüm ledler beyaz iken elde edilebilecek olan maksimum değerdir. Ortalama tüketim yaklaşık <strong>" + ortalamaTuketimKWh.toFixed(2) + " kW / saat</strong> değeridir.</small>";
     }
 
-    function whatsappTeklifGonder() {
-        var il = musteriIlSelect.value;
-        if (!il) { alert("Nihai teklif için lütfen İl seçimi yapınız."); return; }
-        
-        var telefonNumarasi = '905403061991'; // NUMARA GÜNCELLENDİ
-        
+    function getFormattedSummary() {
         var alan = alanSelect.options[alanSelect.selectedIndex].text;
         var montaj = document.getElementById("montajTipi").options[document.getElementById("montajTipi").selectedIndex].text;
         var kasa = document.getElementById("kasaTipi").options[document.getElementById("kasaTipi").selectedIndex].text;
@@ -179,22 +186,34 @@
         var yukseklik = yukseklikSelect.value + " cm";
         var cozunurluk = pixelInfoDiv.textContent;
         var enerji = energyInfoDiv.textContent;
-        var fiyat = sonucDiv.querySelector(".total").textContent;
-        var musteriAd = document.getElementById("musteriAd").value || "Belirtilmedi";
-        var musteriSoyad = document.getElementById("musteriSoyad").value || "Belirtilmedi";
-        var musteriMail = document.getElementById("musteriMail").value || "Belirtilmedi";
+        var fiyat = sonucDiv.querySelector(".total") ? sonucDiv.querySelector(".total").textContent : "Hesaplanmadı";
+        return "PROJE ÖZETİ:\n" + "--------------------------\n" + "Kullanım Alanı: " + alan + "\n" +
+               "Montaj Tipi: " + montaj + "\n" + "Kasa Tipi: " + kasa + "\n" + "İzleme Mesafesi: " + mesafe + "\n" +
+               "Seçilen Piksel Aralığı: " + piksel + "\n" + "Ekran Boyutu: " + genislik + " x " + yukseklik + "\n" +
+               cozunurluk + "\n" + enerji + "\n\n" + fiyat.trim();
+    }
 
-        var mesaj = "Merhaba, web sitenizdeki hesaplayıcı üzerinden bir LED ekran teklifi almak istiyorum.\n\n" +
-                    "*PROJE ÖZETİ:*\n" + "--------------------------\n" + "Kullanım Alanı: " + alan + "\n" +
-                    "Montaj Tipi: " + montaj + "\n" + "Kasa Tipi: " + kasa + "\n" + "İzleme Mesafesi: " + mesafe + "\n" +
-                    "Seçilen Piksel Aralığı: " + piksel + "\n" + "Ekran Boyutu: " + genislik + " x " + yukseklik + "\n" +
-                    cozunurluk + "\n" + enerji + "\n\n" + "*MÜŞTERİ BİLGİLERİ:*\n" + "--------------------------\n" +
-                    "Ad: " + musteriAd + "\n" + "Soyad: " + musteriSoyad + "\n" + "İl: " + il + "\n" +
-                    "E-posta: " + musteriMail + "\n\n" + "*" + fiyat.trim() + "*";
+    function teklifGonder(event) {
+        event.preventDefault();
+        var il = musteriIlSelect.value;
+        if (!il) { alert("Lütfen İl seçimi yapınız."); return; }
 
-        var encodedMesaj = encodeURIComponent(mesaj);
-        var whatsappURL = 'https://wa.me/' + telefonNumarasi + '?text=' + encodedMesaj;
-        window.open(whatsappURL, '_blank');
+        if (isMobile()) {
+            var telefonNumarasi = '905403061991';
+            var musteriAd = document.getElementById("musteriAd").value || "Belirtilmedi";
+            var musteriSoyad = document.getElementById("musteriSoyad").value || "Belirtilmedi";
+            var musteriMail = document.getElementById("musteriMail").value || "Belirtilmedi";
+            var ozet = getFormattedSummary();
+            var mesaj = "Merhaba, web sitenizdeki hesaplayıcı üzerinden bir LED ekran teklifi almak istiyorum.\n\n" + ozet + "\n\n" +
+                        "MÜŞTERİ BİLGİLERİ:\n" + "--------------------------\n" +
+                        "Ad: " + musteriAd + "\n" + "Soyad: " + musteriSoyad + "\n" + "İl: " + il + "\n" + "E-posta: " + musteriMail;
+            var encodedMesaj = encodeURIComponent(mesaj);
+            var whatsappURL = 'https://wa.me/' + telefonNumarasi + '?text=' + encodedMesaj;
+            window.open(whatsappURL, '_blank');
+        } else {
+            document.getElementById("projeOzetiInput").value = getFormattedSummary();
+            contactForm.submit();
+        }
     }
 
     function hesapla() {
@@ -203,8 +222,7 @@
         var secilenPikselOption = pikselSelect.options[pikselSelect.selectedIndex];
         var onerilenPikselAraligi = secilenPikselOption.text.replace(' (Önerilen)', '');
         if (!PRICES.modules[alan][pikselKodu]) {
-            sonucDiv.innerHTML = "⚠️ <b>" + onerilenPikselAraligi + "</b> paneli <b>" + (alan === 'ic' ? 'Dış Mekan' : 'İç Mekan') + "</b> için uygun değildir.";
-            return;
+            sonucDiv.innerHTML = "⚠️ <b>" + onerilenPikselAraligi + "</b> paneli <b>" + (alan === 'ic' ? 'Dış Mekan' : 'İç Mekan') + "</b> için uygun değildir."; return;
         }
         var modulX = Math.ceil(genislik / modulGenislik); var modulY = Math.ceil(yukseklik / modulYukseklik);
         var modulInfo = PRICES.modules[alan][pikselKodu];
@@ -214,7 +232,7 @@
         for (var i = 0; i < PRICES.players.length; i++) { if (PRICES.players[i].maxPiksel >= ekranToplamPiksel) { secilenPlayer = PRICES.players[i]; break; } }
         var playerNotu = "";
         if (!secilenPlayer) { secilenPlayer = PRICES.players[PRICES.players.length - 1]; playerNotu = " <small>(Çözünürlük Çok Yüksek!)</small>"; }
-        var playerAdi = secilenPlayer.ad; var playerFiyati = secilenPlayer.fiyat;
+        var playerFiyati = secilenPlayer.fiyat; var playerAdi = secilenPlayer.ad;
         var toplamGenislikMetre = (modulX * modulGenislik) / 100; var toplamYukseklikMetre = (modulY * modulYukseklik) / 100;
         var toplamAlanMetrekare = toplamGenislikMetre * toplamYukseklikMetre; var toplamModul = modulX * modulY;
         var modulBirimFiyat = PRICES.modules[alan][pikselKodu].fiyat; var modulToplamFiyat = toplamModul * modulBirimFiyat;
@@ -254,19 +272,36 @@
             '<hr>' +
             '<p class="total">ANAHTAR TESLİM SATIŞ FİYATI: ' + karliAraToplam.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USD + ' + kdvTutari.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' KDV = <strong>' + satisFiyati.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USD</strong></p>';
         
-        teklifFormu.style.display = 'block';
+        teklifWrapper.style.display = 'block';
     }
     
+    // Olay Dinleyicileri ve Başlangıç Fonksiyonları
     alanSelect.addEventListener('change', updateAllInfo);
     mesafeInput.addEventListener('input', updateAllInfo);
     pikselSelect.addEventListener('change', updateAllInfo);
     genislikSelect.addEventListener('change', updateAllInfo);
     yukseklikSelect.addEventListener('change', updateAllInfo);
-    whatsappButton.addEventListener('click', whatsappTeklifGonder);
+    teklifButton.addEventListener('click', teklifGonder);
+
+    // Başlangıç ayarlarını yap
+    if (isMobile()) {
+        teklifButton.textContent = 'WhatsApp Üzerinden Teklif Al';
+        teklifButton.classList.add('whatsapp');
+        telefonLabel.textContent = "Telefon (İsteğe Bağlı)";
+        musteriTelefon.required = false;
+        contactForm.removeAttribute('action'); 
+    } else {
+        teklifButton.textContent = 'Teklif Al';
+        teklifButton.classList.add('email');
+        telefonLabel.textContent = "Telefon (İsteğe Bağlı)";
+        musteriTelefon.required = false;
+        contactForm.action = 'https://formsubmit.co/info@elitled.com';
+    }
 
     populateIller();
     populateDimensionDropdowns();
     updateAllInfo();
   </script>
+
 </body>
 </html>
