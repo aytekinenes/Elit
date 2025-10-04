@@ -20,7 +20,7 @@ body {
     line-height: 1.6
 }
 
-.container {
+.body_container {
     width: min(var(--content-width), 100% - 2*var(--pad-x));
     margin: 0 auto;
     padding: 24px 0
