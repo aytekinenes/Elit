@@ -27,7 +27,7 @@ img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 
 /* ✅ Geçerli sözdizimi: calc(...) kullandık */
-.container {
+.body_container {
   width: min(1200px, calc(100% - 2*var(--pad-x)));
   margin-inline: auto;
 }
