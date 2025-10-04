@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <!-- seo için optimize edilmiş meta etiketler -->
     <title>Elit LED Blog | LED Teknolojileri ve Rehber Yazılar</title>
-    <meta name="description" content="LED ekran teknolojileri, ipuçları ve sektör rehberleri. Elit LED Blog ile bilgiye ve doğru çözümlere ulaşın.">
+    <meta name="description"
+        content="LED ekran teknolojileri, ipuçları ve sektör rehberleri. Elit LED Blog ile bilgiye ve doğru çözümlere ulaşın.">
 
 
 
@@ -17,6 +18,18 @@
     <link rel="stylesheet" href="blog-common.css" />
     <link rel="stylesheet" href="blog.css" />
 </head>
+<script>
+    (function () {
+        var checkbox = document.getElementById('menu-toggle');
+        var menu = document.getElementById('primary-menu');
+        var hamburger = document.querySelector('.nav__hamburger');
+        if (checkbox) {
+            checkbox.addEventListener('change', function () { checkbox.setAttribute('aria-expanded', checkbox.checked ? 'true' : 'false'); });
+            if (menu) { Array.prototype.forEach.call(menu.querySelectorAll('a'), function (a) { a.addEventListener('click', function () { checkbox.checked = false; checkbox.setAttribute('aria-expanded', 'false'); }); }); }
+            if (hamburger) { hamburger.setAttribute('tabindex', '0'); hamburger.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); checkbox.checked = !checkbox.checked; checkbox.dispatchEvent(new Event('change')); } }); }
+        }
+    })();
+</script>
 
 <body>
     <!-- NAV inserted from nav.html -->
@@ -42,22 +55,11 @@
                 <li><a href="index.html#iletisim">İletişim</a></li>
             </ul>
         </div>
-        <script>
-            (function () {
-                var checkbox = document.getElementById('menu-toggle');
-                var menu = document.getElementById('primary-menu');
-                var hamburger = document.querySelector('.nav__hamburger');
-                if (checkbox) {
-                    checkbox.addEventListener('change', function () { checkbox.setAttribute('aria-expanded', checkbox.checked ? 'true' : 'false'); });
-                    if (menu) { Array.prototype.forEach.call(menu.querySelectorAll('a'), function (a) { a.addEventListener('click', function () { checkbox.checked = false; checkbox.setAttribute('aria-expanded', 'false'); }); }); }
-                    if (hamburger) { hamburger.setAttribute('tabindex', '0'); hamburger.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); checkbox.checked = !checkbox.checked; checkbox.dispatchEvent(new Event('change')); } }); }
-                }
-            })();
-        </script>
+
     </nav>
     <div class="header-spacer"></div>
 
-    <div class="container">
+    <div class="container body_container">
         <div class="cards-grid">
             <article class="card-item">
                 <h2><a href="led-nedir.html">1. LED nedir?</a></h2>
