@@ -332,6 +332,9 @@ a {
   display: block;
 }
 
+/* modern browsers can reserve layout with aspect-ratio */
+.card .media img { aspect-ratio: 16 / 9; }
+
 /* Play button overlay for click-to-play videos */
 .card .media {
   position: relative;

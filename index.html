@@ -43,6 +43,8 @@
     @media(max-width:480px){.brand img,.brand picture img{height:40px;max-height:40px}}
     .nav__links{list-style:none;display:flex;align-items:center;gap:28px;margin:0;padding:0}
     .nav__links a{color:#fff;padding:8px 10px;border-radius:10px;text-decoration:none}
+    /* reserve space for portfolio media to avoid CLS before main CSS loads */
+    .card .media, .card .media img, .card .media video {min-height:220px;height:220px;width:100%;display:block;object-fit:cover;background:#000}
   </style>
 
   <!-- load non-critical styles asynchronously to avoid blocking LCP -->
@@ -172,9 +174,7 @@
 
   <!-- ===== HERO ===== -->
   <header id="anasayfa" class="hero">
-  <video autoplay muted loop playsinline preload="metadata" poster="img/home.webp">
-      <source src="img/bgvideo.mp4" type="video/mp4" />
-    </video>
+    <video autoplay muted loop playsinline preload="none" data-src="img/bgvideo.mp4" poster="img/home.webp"></video>
     <div class="overlay">
       <h1>LED Ekran ve Kayan Yazı Sistemleri</h1>
       <p>Yılların tecrübesi ve rekabetçi fiyat politikamızla LED teknolojilerinde uçtan uca çözümler sunuyoruz.
@@ -247,7 +247,7 @@
           <a href="img/res2.webp" class="lightbox-trigger" data-fallback="img/res2.jpg" data-caption="Araç üstü kayan yazı">
             <picture>
               <source srcset="img/res2-thumb.webp" type="image/webp">
-              <img src="img/res2.jpg" alt="Araç üstü kayan yazı" loading="lazy" />
+              <img src="img/res2.jpg" alt="Araç üstü kayan yazı" loading="lazy" width="800" height="494" />
             </picture>
           </a>
         </div>
@@ -283,7 +283,7 @@
           <a href="img/photo1.webp" class="lightbox-trigger" data-fallback="img/photo1.jpg" data-caption="Dış cephe LED tabela">
             <picture>
               <source srcset="img/photo1-thumb.webp" type="image/webp">
-              <img src="img/photo1.jpg" alt="Dış cephe LED tabela" loading="lazy" />
+              <img src="img/photo1.jpg" alt="Dış cephe LED tabela" loading="lazy" width="800" height="494" />
             </picture>
           </a>
         </div>
@@ -319,7 +319,7 @@
           <a href="img/res3.webp" class="lightbox-trigger" data-fallback="img/res3.jpg" data-caption="İç mekân LED menü board">
             <picture>
               <source srcset="img/res3-thumb.webp" type="image/webp">
-              <img src="img/res3.jpg" alt="İç mekân LED menü board" loading="lazy" />
+              <img src="img/res3.jpg" alt="İç mekân LED menü board" loading="lazy" width="800" height="494" />
             </picture>
           </a>
         </div>
@@ -420,6 +420,29 @@
       }
     })();
   </script>
+      <script>
+        // Lazy-load hero video after page load/idle to avoid blocking LCP and save bandwidth
+        (function(){
+          function loadHero(){
+            var v = document.querySelector('.hero>video');
+            if (!v) return;
+            if (v.dataset.loaded) return;
+            var src = v.getAttribute('data-src');
+            if (!src) return;
+            var s = document.createElement('source');
+            s.src = src;
+            s.type = 'video/mp4';
+            v.appendChild(s);
+            v.load();
+            v.dataset.loaded = '1';
+          }
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadHero,{timeout:2000});
+          } else {
+            window.addEventListener('load', function(){ setTimeout(loadHero, 500); });
+          }
+        })();
+      </script>
 </body>
 
 </html>
