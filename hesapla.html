@@ -1,50 +1,92 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+  <!-- seo için optimize edilmiş meta etiketler -->
+  <title>LED Ekran Kurulum ve Destek Hizmetleri | Elit LED</title>
+ <meta name="description" content="Montaj, teknik destek, bakım ve danışmanlık hizmetleri. Elit LED ile projelerinizi güvenle hayata geçirin.">
+
+
+
+  <meta name="description"
+    content="LED modül tamiri, kontrol kartı programlama, montaj ve bakım. Fiyatlandırma için ekspertiz yapılır." />
+  <link rel="icon" href="img/NewLogo.jpg" />
   <link rel="stylesheet" href="nav.css">
-  <link rel="stylesheet" href="hesapla.css">
-
-    <!-- SEO için optimize edilmiş meta etiketler -->
-  <title>LED Ekran Hesaplama Aracı | Elit LED</title>
-    <meta name="description" content="Projeniz için gerekli LED ekran boyutunu, piksel aralığını ve maliyetini hesaplayın. Elit LED hesaplama aracıyla kolay planlama.">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="service.css" />
 
 
+        <style>
+    /* critical nav styles (inlined to reduce render-blocking) */
+    :root{--nav-h:72px;--pad-x:56px;--brand:#ffcc00;--brand-ink:#121212}
+    .nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:1000;background:#000;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px)}
+    .nav__wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img,.brand picture img{height:56px;max-height:56px;width:auto;border-radius:8px}
+    @media(max-width:1024px){.brand img,.brand picture img{height:48px;max-height:48px}}
+    @media(max-width:480px){.brand img,.brand picture img{height:40px;max-height:40px}}
+    .nav__links{list-style:none;display:flex;align-items:center;gap:28px;margin:0;padding:0}
+    .nav__links a{color:#fff;padding:8px 10px;border-radius:10px;text-decoration:none}
+    /* reserve space for portfolio media to avoid CLS before main CSS loads */
+    .card .media, .card .media img, .card .media video {min-height:220px;height:220px;width:100%;display:block;object-fit:cover;background:#000}
+
+
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f8f9fa; color: #333; padding: 15px; max-width: 700px; margin: auto; -webkit-font-smoothing: antialiased; }
+    /* .container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); } */
+    h1 { text-align: center; margin-bottom: 25px; color: #0056b3; font-size: 1.6em; }
+    label { display: block; margin: 15px 0 5px; font-weight: 600; color: #555; }
+    select, input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; background-color: #fdfdfd; -webkit-appearance: none; appearance: none; }
+    .row { display: flex; flex-wrap: wrap; gap: 15px; }
+    .row > div { flex: 1; min-width: 180px; }
+    .info-box { background-color: #e2eefd; border-left: 5px solid #0056b3; padding: 15px; margin-top: 15px; margin-bottom: 10px; font-size: 1.1em; text-align: center; font-weight: bold; border-radius: 0 6px 6px 0; }
+    .info-box small { font-weight: normal; font-size: 0.8em; color: #555; display: block; margin-top: 8px; }
+    #energyInfo { margin-bottom: 20px; }
+    button { background: #0056b3; color: #fff; padding: 15px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 18px; font-weight: bold; transition: background-color 0.2s; }
+    button:hover { background: #00408f; }
+    #teklifButton { background-color: #25D366; margin-top: 10px; }
+    #teklifButton:hover { background-color: #1DAA50; }
+    #teklifButton.email { background-color: #007bff; }
+    #teklifButton.email:hover { background-color: #0056b3; }
+    .result { margin-top: 25px; padding: 20px; background: #f4f8ff; border: 1px solid #d1e3ff; border-radius: 8px; }
+    .result h3 { margin-top: 0; color: #0056b3; border-bottom: 2px solid #dde8f7; padding-bottom: 10px; }
+    .result .total { font-weight: bold; font-size: 1.2em; color: #28a745; margin-top: 15px; border-top: 2px solid #dde8f7; padding-top: 15px; word-break: break-word; }
+    .offer-note { background-color: #fff3cd; border-left: 5px solid #ffeeba; padding: 15px; margin-top: 20px; border-radius: 6px;}
+    #teklifWrapper { display: none; margin-top: 20px; }
+  </style>
 </head>
+
 <body>
 
-    <!-- ===== NAV (CSS-only hamburger) ===== -->
+  <!-- ===== NAV (CSS-only hamburger) ===== -->
   <nav class="nav">
     <div class="container nav__wrap">
       <a class="brand" href="index.html" aria-label="Elit LED">
         <picture>
-            <!-- <source srcset="img/newLogo.webp" type="image/webp"> -->
-            <img src="img/newLogo.PNG" alt="Elit LED" />
+          <source srcset="img/newLogo.webp" type="image/webp">
+          <img src="img/newLogo.PNG" alt="Elit LED" />
         </picture>
-        <!-- <span>Elit LED</span> -->
       </a>
-
-      <input type="checkbox" id="menu-toggle" class="nav__checkbox"
-             aria-label="Menüyü aç/kapat" aria-controls="primary-menu" aria-expanded="false" />
-      <label for="menu-toggle" class="nav__hamburger">
-        <span></span><span></span><span></span>
-      </label>
 
       <ul class="nav__links" id="primary-menu">
         <li><a href="index.html" class="active" aria-current="page">Anasayfa</a></li>
         <!-- <li><a href="product.html">Ürünlerimiz</a></li> -->
         <li><a href="hesapla.html">Hesapla</a></li>
         <li><a href="service.html">Hizmetlerimiz</a></li>
-        <li><a href="#portfolio">Çalışmalar</a></li>
+        <li><a href="index.html#portfolio">Çalışmalar</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="#iletisim">İletişim</a></li>
+        <li><a href="index.html#iletisim">İletişim</a></li>
       </ul>
     </div>
   </nav>
+  <div class="header-spacer"></div>
 
 
-  <div class="container body_container">
+
+
+  <div class="container">
     <h1>Profesyonel LED Ekran Fiyat Hesaplama (USD)</h1>
 
     <label for="alan">Kullanım Alanı</label>
@@ -201,9 +243,23 @@
 
     function teklifGonder(event) {
         event.preventDefault();
-        var il = musteriIlSelect.value;
-        if (!il) { alert("Lütfen İl seçimi yapınız."); return; }
 
+        // Sadece PC için form geçerliliğini kontrol et
+        if (!isMobile() && !contactForm.checkValidity()) {
+            contactForm.reportValidity();
+            return;
+        }
+
+        var il = musteriIlSelect.value;
+        if (!il) {
+            alert("Lütfen İl seçimi yapınız.");
+            return;
+        }
+
+        // Proje özetini formdaki gizli alana her zaman ekle
+        document.getElementById("projeOzetiInput").value = getFormattedSummary();
+
+        // Eğer mobil ise, WhatsApp'ı YİNE DE aç
         if (isMobile()) {
             var telefonNumarasi = '905403061991';
             var musteriAd = document.getElementById("musteriAd").value || "Belirtilmedi";
@@ -211,15 +267,15 @@
             var musteriMail = document.getElementById("musteriMail").value || "Belirtilmedi";
             var ozet = getFormattedSummary();
             var mesaj = "Merhaba, web sitenizdeki hesaplayıcı üzerinden bir LED ekran teklifi almak istiyorum.\n\n" + ozet + "\n\n" +
-                        "MÜŞTERİ BİLGİLERİ:\n" + "--------------------------\n" +
-                        "Ad: " + musteriAd + "\n" + "Soyad: " + musteriSoyad + "\n" + "İl: " + il + "\n" + "E-posta: " + musteriMail;
+                          "MÜŞTERİ BİLGİLERİ:\n" + "--------------------------\n" +
+                          "Ad: " + musteriAd + "\n" + "Soyad: " + musteriSoyad + "\n" + "İl: " + il + "\n" + "E-posta: " + musteriMail;
             var encodedMesaj = encodeURIComponent(mesaj);
             var whatsappURL = 'https://wa.me/' + telefonNumarasi + '?text=' + encodedMesaj;
             window.open(whatsappURL, '_blank');
-        } else {
-            document.getElementById("projeOzetiInput").value = getFormattedSummary();
-            contactForm.submit();
         }
+
+        // Formu e-posta olarak GÖNDER (hem mobil hem de PC için)
+        contactForm.submit();
     }
 
     function hesapla() {
@@ -293,21 +349,28 @@
     if (isMobile()) {
         teklifButton.textContent = 'WhatsApp Üzerinden Teklif Al';
         teklifButton.classList.add('whatsapp');
-        telefonLabel.textContent = "Telefon (İsteğe Bağlı)";
+        // Mobil ise telefon alanı etiketini ve input'unu gizle
+        telefonLabel.style.display = 'none';
+        musteriTelefon.style.display = 'none';
         musteriTelefon.required = false;
-        contactForm.removeAttribute('action'); 
     } else {
         teklifButton.textContent = 'Teklif Al';
         teklifButton.classList.add('email');
-        telefonLabel.textContent = "Telefon (İsteğe Bağlı)";
-        musteriTelefon.required = false;
-        contactForm.action = 'https://formsubmit.co/info@elitled.com';
+        // PC ise telefon alanını zorunlu yap
+        telefonLabel.textContent = "Telefon (Zorunlu)";
+        musteriTelefon.required = true;
     }
+
+    // Formun e-posta hedefini her zaman ayarla
+    contactForm.action = 'https://formsubmit.co/info@elitled.com';
 
     populateIller();
     populateDimensionDropdowns();
     updateAllInfo();
   </script>
+
+
+
 
 </body>
 </html>

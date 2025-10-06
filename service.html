@@ -17,6 +17,22 @@
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="service.css" />
+
+
+        <style>
+    /* critical nav styles (inlined to reduce render-blocking) */
+    :root{--nav-h:72px;--pad-x:56px;--brand:#ffcc00;--brand-ink:#121212}
+    .nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:1000;background:#000;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px)}
+    .nav__wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img,.brand picture img{height:56px;max-height:56px;width:auto;border-radius:8px}
+    @media(max-width:1024px){.brand img,.brand picture img{height:48px;max-height:48px}}
+    @media(max-width:480px){.brand img,.brand picture img{height:40px;max-height:40px}}
+    .nav__links{list-style:none;display:flex;align-items:center;gap:28px;margin:0;padding:0}
+    .nav__links a{color:#fff;padding:8px 10px;border-radius:10px;text-decoration:none}
+    /* reserve space for portfolio media to avoid CLS before main CSS loads */
+    .card .media, .card .media img, .card .media video {min-height:220px;height:220px;width:100%;display:block;object-fit:cover;background:#000}
+  </style>
 </head>
 
 <body>
@@ -24,47 +40,22 @@
   <!-- ===== NAV (CSS-only hamburger) ===== -->
   <nav class="nav">
     <div class="container nav__wrap">
-      <a class="brand" href="index.html">
-    <picture>
-      <!-- <source srcset="img/newLogo.webp" type="image/webp"> -->
-      <img src="img/newLogo.PNG" alt="Elit LED" />
-    </picture>
-        <!-- <span>Elit LED</span> -->
+      <a class="brand" href="index.html" aria-label="Elit LED">
+        <picture>
+          <source srcset="img/newLogo.webp" type="image/webp">
+          <img src="img/newLogo.PNG" alt="Elit LED" />
+        </picture>
       </a>
 
-      <input type="checkbox" id="menu-toggle" class="nav__checkbox" aria-label="Menüyü aç/kapat"
-        aria-controls="primary-menu" aria-expanded="false" />
-      <label for="menu-toggle" class="nav__hamburger">
-        <span></span><span></span><span></span>
-      </label>
-
       <ul class="nav__links" id="primary-menu">
-        <li><a href="index.html">Anasayfa</a></li>
+        <li><a href="index.html" class="active" aria-current="page">Anasayfa</a></li>
+        <!-- <li><a href="product.html">Ürünlerimiz</a></li> -->
         <li><a href="hesapla.html">Hesapla</a></li>
-        <li><a href="service.html" aria-current="page">Hizmetlerimiz</a></li>
+        <li><a href="service.html">Hizmetlerimiz</a></li>
         <li><a href="index.html#portfolio">Çalışmalar</a></li>
         <li><a href="blog.html">Blog</a></li>
-
         <li><a href="index.html#iletisim">İletişim</a></li>
       </ul>
-      <script>
-        (function () {
-          var checkbox = document.getElementById('menu-toggle');
-          var menu = document.getElementById('primary-menu');
-          var hamburger = document.querySelector('.nav__hamburger');
-          if (checkbox) {
-            checkbox.addEventListener('change', function () {
-              checkbox.setAttribute('aria-expanded', checkbox.checked ? 'true' : 'false');
-            });
-            if (menu) {
-              Array.prototype.forEach.call(menu.querySelectorAll('a'), function (a) {
-                a.addEventListener('click', function () { checkbox.checked = false; checkbox.setAttribute('aria-expanded', 'false'); });
-              });
-            }
-            if (hamburger) { hamburger.setAttribute('tabindex', '0'); hamburger.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); checkbox.checked = !checkbox.checked; checkbox.dispatchEvent(new Event('change')); } }); }
-          }
-        })();
-      </script>
     </div>
   </nav>
   <div class="header-spacer"></div>

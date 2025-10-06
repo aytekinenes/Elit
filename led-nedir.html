@@ -82,45 +82,35 @@
 
 <body>
 
-    <nav class="nav">
-        <div class="container nav__wrap">
-            <a class="brand" href="index.html">
-                <picture>
-                    <!-- <source srcset="img/newLogo.webp" type="image/webp"> -->
-                    <img src="img/newLogo.PNG" alt="Elit LED" />
-                </picture>
-                <!-- <span>Elit LED</span> -->
-            </a>
 
-            <input type="checkbox" id="menu-toggle" class="nav__checkbox" aria-label="Menüyü aç/kapat"
-                aria-controls="primary-menu" aria-expanded="false" />
-            <label for="menu-toggle" class="nav__hamburger">
-                <span></span><span></span><span></span>
-            </label>
+      <!-- ===== NAV (CSS-only hamburger) ===== -->
+  <nav class="nav">
+    <div class="container nav__wrap">
+      <a class="brand" href="index.html" aria-label="Elit LED">
+        <picture>
+          <source srcset="img/newLogo.webp" type="image/webp">
+          <img src="img/newLogo.PNG" alt="Elit LED" />
+        </picture>
+      </a>
 
-            <ul class="nav__links" id="primary-menu">
-                <li><a href="index.html">Anasayfa</a></li>
-                <li><a href="service.html">Hizmetlerimiz</a></li>
-                <li><a href="index.html#portfolio">Çalışmalar</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="index.html#iletisim">İletişim</a></li>
-            </ul>
-        </div>
-        <script>
-            (function () {
-                var checkbox = document.getElementById('menu-toggle');
-                var menu = document.getElementById('primary-menu');
-                var hamburger = document.querySelector('.nav__hamburger');
-                if (checkbox) {
-                    checkbox.addEventListener('change', function () { checkbox.setAttribute('aria-expanded', checkbox.checked ? 'true' : 'false'); });
-                    if (menu) { Array.prototype.forEach.call(menu.querySelectorAll('a'), function (a) { a.addEventListener('click', function () { checkbox.checked = false; checkbox.setAttribute('aria-expanded', 'false'); }); }); }
-                    if (hamburger) { hamburger.setAttribute('tabindex', '0'); hamburger.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); checkbox.checked = !checkbox.checked; checkbox.dispatchEvent(new Event('change')); } }); }
-                }
-            })();
-        </script>
-        </div>
-    </nav>
-    <div class="header-spacer"></div>
+      <input type="checkbox" id="menu-toggle" class="nav__checkbox" aria-label="Menüyü aç/kapat"
+        aria-controls="primary-menu" aria-expanded="false" />
+      <label for="menu-toggle" class="nav__hamburger">
+        <span></span><span></span><span></span>
+      </label>
+
+      <ul class="nav__links" id="primary-menu">
+        <li><a href="index.html" class="active" aria-current="page">Anasayfa</a></li>
+        <!-- <li><a href="product.html">Ürünlerimiz</a></li> -->
+        <li><a href="hesapla.html">Hesapla</a></li>
+        <li><a href="service.html">Hizmetlerimiz</a></li>
+        <li><a href="#portfolio">Çalışmalar</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="header-spacer"></div>
 
 
 
