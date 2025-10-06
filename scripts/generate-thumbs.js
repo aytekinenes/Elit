@@ -3,12 +3,15 @@ const path = require('path');
 const sharp = require('sharp');
 
 const imagesDir = path.join(__dirname, '..', 'img');
-const thumbWidth = 800; // reasonable thumbnail width for portfolio
+const thumbWidth = 400; // reduced thumbnail width for better PageSpeed
 
 async function processFile(file) {
   const ext = path.extname(file).toLowerCase();
+  // skip non-image files
   if (!['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) return;
   const name = path.basename(file, ext);
+  // skip files that already look like thumbnails (avoid creating name-thumb-thumb.webp)
+  if (name.endsWith('-thumb')) return;
   const input = path.join(imagesDir, file);
   const outWebp = path.join(imagesDir, `${name}-thumb.webp`);
   try {

@@ -32,7 +32,11 @@
   <link rel="stylesheet" href="nav.css">
   <!-- Ortak sayfa stilleri -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="lightbox.css" />
+  <!-- load non-critical lightbox CSS asynchronously -->
+  <link rel="preload" href="lightbox.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="lightbox.css"></noscript>
+  <!-- preload LCP image (hero poster) to improve Largest Contentful Paint -->
+  <link rel="preload" as="image" href="img/home.webp" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -152,7 +156,7 @@
 
   <!-- ===== HERO ===== -->
   <header id="anasayfa" class="hero">
-    <video autoplay muted loop playsinline preload="metadata" poster="img/home.png">
+  <video autoplay muted loop playsinline preload="metadata" poster="img/home.webp">
       <source src="img/bgvideo.mp4" type="video/mp4" />
     </video>
     <div class="overlay">
@@ -348,7 +352,7 @@
   </footer>
 
   <script>document.getElementById('yil').textContent = new Date().getFullYear();</script>
-  <script src="lightbox.js"></script>
+  <script src="lightbox.js" defer></script>
   <script>
     (function(){
       // Lazy-load video source and play on button click

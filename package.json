@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "convert-webp": "node scripts/convert-webp.js",
-    "generate-thumbs": "node scripts/generate-thumbs.js"
+    "generate-thumbs": "node scripts/generate-thumbs.js",
+    "clean-thumbs": "node scripts/clean-thumbs.js"
   },
   "dependencies": {
     "sharp": "^0.32.0"
