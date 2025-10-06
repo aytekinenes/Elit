@@ -48,9 +48,25 @@ html {
 }
 
 .brand img {
-    height: 120px !important;
+    /* responsive logo sizes: desktop/tablet/mobile */
+    height: 56px; /* desktop default */
+    max-height: 56px;
     width: auto;
-    border-radius: 8px
+    border-radius: 8px;
+}
+
+.brand picture img {
+    height: 56px;
+    max-height: 56px;
+    width: auto;
+}
+
+/* tablet: slightly smaller */
+@media (max-width:1024px) {
+    .brand img, .brand picture img {
+        height: 48px;
+        max-height: 48px;
+    }
 }
 
 .brand span {
@@ -171,5 +187,13 @@ html {
 
     .brand img {
         height: 40px;
+    }
+}
+
+/* mobile extra small: keep logo compact */
+@media (max-width:480px) {
+    .brand img, .brand picture img {
+        height: 40px;
+        max-height: 40px;
     }
 }

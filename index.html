@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="nav.css">
   <!-- Ortak sayfa stilleri -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="lightbox.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,8 +90,10 @@
   <nav class="nav">
     <div class="container nav__wrap">
       <a class="brand" href="index.html" aria-label="Elit LED">
-        <img src="img/newLogo.PNG" alt="Elit LED" />
-        <!-- <span>Elit LED</span> -->
+        <picture>
+          <source srcset="img/newLogo.webp" type="image/webp">
+          <img src="img/newLogo.PNG" alt="Elit LED" />
+        </picture>
       </a>
 
       <input type="checkbox" id="menu-toggle" class="nav__checkbox" aria-label="Menüyü aç/kapat"
@@ -221,7 +224,12 @@
       <!-- Card 4: image -->
       <figure id="project-4" class="card" tabindex="0">
         <div class="media">
-          <img src="img/res2.jpg" alt="Araç üstü kayan yazı" loading="lazy" />
+          <a href="img/res2.webp" class="lightbox-trigger" data-fallback="img/res2.jpg" data-caption="Araç üstü kayan yazı">
+            <picture>
+              <source srcset="img/res2-thumb.webp" type="image/webp">
+              <img src="img/res2.jpg" alt="Araç üstü kayan yazı" loading="lazy" />
+            </picture>
+          </a>
         </div>
         <figcaption class="card-body">
           <div>
@@ -252,7 +260,12 @@
       <!-- Card 6: image -->
       <figure id="project-6" class="card" tabindex="0">
         <div class="media">
-          <img src="img/photo1.jpg" alt="Dış cephe LED tabela" loading="lazy" />
+          <a href="img/photo1.webp" class="lightbox-trigger" data-fallback="img/photo1.jpg" data-caption="Dış cephe LED tabela">
+            <picture>
+              <source srcset="img/photo1-thumb.webp" type="image/webp">
+              <img src="img/photo1.jpg" alt="Dış cephe LED tabela" loading="lazy" />
+            </picture>
+          </a>
         </div>
         <figcaption class="card-body">
           <div>
@@ -283,7 +296,12 @@
       <!-- Card 8: image -->
       <figure id="project-8" class="card" tabindex="0">
         <div class="media">
-          <img src="img/res3.jpg" alt="İç mekân LED menü board" loading="lazy" />
+          <a href="img/res3.webp" class="lightbox-trigger" data-fallback="img/res3.jpg" data-caption="İç mekân LED menü board">
+            <picture>
+              <source srcset="img/res3-thumb.webp" type="image/webp">
+              <img src="img/res3.jpg" alt="İç mekân LED menü board" loading="lazy" />
+            </picture>
+          </a>
         </div>
         <figcaption class="card-body">
           <div>
@@ -330,6 +348,7 @@
   </footer>
 
   <script>document.getElementById('yil').textContent = new Date().getFullYear();</script>
+  <script src="lightbox.js"></script>
   <script>
     (function(){
       // Lazy-load video source and play on button click

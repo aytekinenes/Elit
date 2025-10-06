@@ -1,0 +1,13 @@
+{
+  "name": "elit-webp-tools",
+  "version": "1.0.0",
+  "description": "Helpers to convert site images to WebP for the Elit site",
+  "private": true,
+  "scripts": {
+    "convert-webp": "node scripts/convert-webp.js",
+    "generate-thumbs": "node scripts/generate-thumbs.js"
+  },
+  "dependencies": {
+    "sharp": "^0.32.0"
+  }
+}
