@@ -28,10 +28,26 @@
 
   <!-- Google Search Console Doğrulama -->
   <meta name="google-site-verification" content="33af9fd0331dcca1" />
-  <!-- NAV her sayfada ilk sırada -->
-  <link rel="stylesheet" href="nav.css">
-  <!-- Ortak sayfa stilleri -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- NAV her sayfada ilk sırada (critical parts inlined above). Load full files asynchronously -->
+  <link rel="preload" href="nav.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="nav.css"></noscript>
+  <!-- inline critical CSS for navigation to avoid blocking render -->
+  <style>
+    /* critical nav styles (inlined to reduce render-blocking) */
+    :root{--nav-h:72px;--pad-x:56px;--brand:#ffcc00;--brand-ink:#121212}
+    .nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:1000;background:#000;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px)}
+    .nav__wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img,.brand picture img{height:56px;max-height:56px;width:auto;border-radius:8px}
+    @media(max-width:1024px){.brand img,.brand picture img{height:48px;max-height:48px}}
+    @media(max-width:480px){.brand img,.brand picture img{height:40px;max-height:40px}}
+    .nav__links{list-style:none;display:flex;align-items:center;gap:28px;margin:0;padding:0}
+    .nav__links a{color:#fff;padding:8px 10px;border-radius:10px;text-decoration:none}
+  </style>
+
+  <!-- load non-critical styles asynchronously to avoid blocking LCP -->
+  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
   <!-- load non-critical lightbox CSS asynchronously -->
   <link rel="preload" href="lightbox.css" as="style" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="lightbox.css"></noscript>
