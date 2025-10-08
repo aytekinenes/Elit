@@ -1,41 +1,35 @@
 import React, { useEffect, useState } from "react";
 import AppBarMi from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from 'react-router-dom';
-import logo from '../images/elitled_logo.jpg';
+import { MenuItem, Button, Container, Menu, Typography, IconButton, Toolbar, Box } from '@mui/material'
+import { useNavigate, Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
+
 
 const pages = [
     {
         name: 'Anasayfa',
-        url: '/'
-    },
-    {
-        name: 'Hesapla',
-        url: '/calculator'
+        url: 'home'
     },
     {
         name: 'Hizmetlerimiz',
-        url: '/services'
+        url: 'services'
     },
     {
         name: 'Çalışmalar',
-        url: '/working'
+        url: 'working'
+    },
+    {
+        name: 'Hesapla',
+        url: 'calculator'
     },
     {
         name: 'Blog',
-        url: '/blog'
+        url: 'blog'
     },
     {
         name: 'İletişim',
-        url: '/contact'
+        url: 'contact'
     }];
 
 function AppBar() {
@@ -59,9 +53,15 @@ function AppBar() {
     };
 
     return (
-        <AppBarMi position="static">
+        <AppBarMi position="fixed">
             <Container maxWidth="md">
-                <Toolbar disableGutters>
+                <Toolbar disableGutters sx={{
+                    minHeight: 64, // AppBar yüksekliğini sabit tut
+                    height: 64,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -96,26 +96,37 @@ function AppBar() {
                             ))}
                         </Menu>
                     </Box>
-
-
-                    <Typography
-                        sx={{ flexGrow: { xs: 1, md: 0 } }}>
-                        <Button onClick={() => handleCloseNavMenu('/')}>
-                            <Box
-                                component="img"
-                                src={logo}
-                                alt="Logo"
-                                sx={{ height: 40, width: 'auto' }}
+                    <Typography sx={{ flexGrow: { xs: 1, md: 0 }, paddingTop: 1 }}>
+                        <Link
+                            to="/"
+                            style={{
+                                display: 'inline-block',
+                                textDecoration: 'none'
+                            }}
+                        >
+                            <i
+                                style={{
+                                    display: 'block',
+                                    width: '120px',
+                                    height: '50px',
+                                    backgroundImage: 'url("/images/newLogo-150-150.png")',
+                                    backgroundSize: 'auto',
+                                    backgroundPosition: 'center'
+                                }}
                             />
-                        </Button>
+                        </Link>
                     </Typography>
-
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
+                                component={ScrollLink}
                                 key={page.name}
-                                onClick={() => handleCloseNavMenu(page.url)}
-                                sx={{ my: 2, color: 'white', display: 'block', px:3 }}
+                                to={page.url}
+                                smooth={true}     // yumuşak kaydırma
+                                duration={600}    // animasyon süresi (ms)
+                                offset={-70}
+                                //onClick={() => handleCloseNavMenu(page.url)}
+                                sx={{ my: 2, color: 'white', display: 'block', px: 3 }}
                             >
                                 {page.name}
                             </Button>

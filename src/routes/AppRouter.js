@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home';
+import Index from '../pages/Index';
 import AppBar from "../components/AppBar";
 
 
@@ -10,8 +11,8 @@ function AppRouter() {
       <Router>
         <AppBar />
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="*" element={<Home />} />
+          <Route path="/home" element={<Index />} />
+          <Route path="*" element={<Index />} />
         </Routes>
       </Router>
     </>

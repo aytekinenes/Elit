@@ -3,20 +3,23 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   components: {
     MuiButton: {
-      styleOverrides: {
-        containedPrimary: {
-          backgroundColor: '#000',
-          color: '#fff',
-          '&:hover': {
-            backgroundColor: '#000',
-          },
+      styleOverrides:{
+        root:{
+          textTransform: "none",
+          borderRadius: "980px",
+          paddingLeft:'21px',
+          paddingRight:'21px',
+          paddingTop:'11px',
+          paddingBottom:'11px',
+          fontSize:'18px',
+          fontWeight:'bold'
         },
       },
     },
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#000', // Mavi örnek renk
+          backgroundColor: '#000',
         },
       },
     },
