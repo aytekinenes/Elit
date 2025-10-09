@@ -2,375 +2,593 @@
 <html lang="tr">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
- 
-  <!-- seo için optimize edilmiş meta etiketler -->
-  <title>LED Ekran Kurulum ve Destek Hizmetleri | Elit LED</title>
- <meta name="description" content="Montaj, teknik destek, bakım ve danışmanlık hizmetleri. Elit LED ile projelerinizi güvenle hayata geçirin.">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- seo için optimize edilmiş meta etiketler -->
+    <title>LED Ekran Kurulum ve Destek Hizmetleri | Elit LED</title>
+    <meta name="description"
+        content="Montaj, teknik destek, bakım ve danışmanlık hizmetleri. Elit LED ile projelerinizi güvenle hayata geçirin.">
 
 
 
-  <meta name="description"
-    content="LED modül tamiri, kontrol kartı programlama, montaj ve bakım. Fiyatlandırma için ekspertiz yapılır." />
-  <link rel="icon" href="img/newLogo.PNG" />
-  <link rel="stylesheet" href="nav.css">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="service.css" />
+    <meta name="description"
+        content="LED modül tamiri, kontrol kartı programlama, montaj ve bakım. Fiyatlandırma için ekspertiz yapılır." />
+    <link rel="icon" href="img/newLogo.PNG" />
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="service.css" />
 
 
-        <style>
-    /* critical nav styles (inlined to reduce render-blocking) */
-    :root{--nav-h:72px;--pad-x:56px;--brand:#ffcc00;--brand-ink:#121212}
-    .nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:1000;background:#000;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px)}
-    .nav__wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img,.brand picture img{height:156px;max-height:156px;width:auto;border-radius:8px}
-    @media(max-width:1024px){.brand img,.brand picture img{height:48px;max-height:48px}}
-    @media(max-width:480px){.brand img,.brand picture img{height:40px;max-height:40px}}
-    .nav__links{list-style:none;display:flex;align-items:center;gap:28px;margin:0;padding:0}
-    .nav__links a{color:#fff;padding:8px 10px;border-radius:10px;text-decoration:none}
-    /* reserve space for portfolio media to avoid CLS before main CSS loads */
-    .card .media, .card .media img, .card .media video {min-height:220px;height:220px;width:100%;display:block;object-fit:cover;background:#000}
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            padding: 15px;
+            max-width: 700px;
+            margin: auto;
+            -webkit-font-smoothing: antialiased;
+        }
 
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
 
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f8f9fa; color: #333; padding: 15px; max-width: 700px; margin: auto; -webkit-font-smoothing: antialiased; }
-    /* .container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); } */
-    h1 { text-align: center; margin-bottom: 25px; color: #0056b3; font-size: 1.6em; }
-    label { display: block; margin: 15px 0 5px; font-weight: 600; color: #555; }
-    select, input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; background-color: #fdfdfd; -webkit-appearance: none; appearance: none; }
-    .row { display: flex; flex-wrap: wrap; gap: 15px; }
-    .row > div { flex: 1; min-width: 180px; }
-    .info-box { background-color: #e2eefd; border-left: 5px solid #0056b3; padding: 15px; margin-top: 15px; margin-bottom: 10px; font-size: 1.1em; text-align: center; font-weight: bold; border-radius: 0 6px 6px 0; }
-    .info-box small { font-weight: normal; font-size: 0.8em; color: #555; display: block; margin-top: 8px; }
-    #energyInfo { margin-bottom: 20px; }
-    button { background: #0056b3; color: #fff; padding: 15px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 18px; font-weight: bold; transition: background-color 0.2s; }
-    button:hover { background: #00408f; }
-    #teklifButton { background-color: #25D366; margin-top: 10px; }
-    #teklifButton:hover { background-color: #1DAA50; }
-    #teklifButton.email { background-color: #007bff; }
-    #teklifButton.email:hover { background-color: #0056b3; }
-    .result { margin-top: 25px; padding: 20px; background: #f4f8ff; border: 1px solid #d1e3ff; border-radius: 8px; }
-    .result h3 { margin-top: 0; color: #0056b3; border-bottom: 2px solid #dde8f7; padding-bottom: 10px; }
-    .result .total { font-weight: bold; font-size: 1.2em; color: #28a745; margin-top: 15px; border-top: 2px solid #dde8f7; padding-top: 15px; word-break: break-word; }
-    .offer-note { background-color: #fff3cd; border-left: 5px solid #ffeeba; padding: 15px; margin-top: 20px; border-radius: 6px;}
-    #teklifWrapper { display: none; margin-top: 20px; }
-  </style>
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #0056b3;
+            font-size: 1.6em;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #fdfdfd;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .row>div {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .info-box {
+            background-color: #e2eefd;
+            border-left: 5px solid #0056b3;
+            padding: 15px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .info-box small {
+            font-weight: normal;
+            font-size: 0.8em;
+            color: #555;
+            display: block;
+            margin-top: 8px;
+        }
+
+        #energyInfo {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #0056b3;
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background: #00408f;
+        }
+
+        button:disabled {
+            background: #a9a9a9;
+            cursor: not-allowed;
+        }
+
+        #teklifButton {
+            background-color: #25D366;
+            margin-top: 10px;
+        }
+
+        #teklifButton:hover {
+            background-color: #1DAA50;
+        }
+
+        #teklifButton.email {
+            background-color: #007bff;
+        }
+
+        #teklifButton.email:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f4f8ff;
+            border: 1px solid #d1e3ff;
+            border-radius: 8px;
+        }
+
+        .result h3 {
+            margin-top: 0;
+            color: #0056b3;
+            border-bottom: 2px solid #dde8f7;
+            padding-bottom: 10px;
+        }
+
+        .result .total {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #28a745;
+            margin-top: 15px;
+            border-top: 2px solid #dde8f7;
+            padding-top: 15px;
+            word-break: break-word;
+        }
+
+        .offer-note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffeeba;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        #teklifWrapper {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #successPlaceholder {
+            background-color: #28a745;
+            border: 1px solid #218838;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- ===== NAV (CSS-only hamburger) ===== -->
-  <nav class="nav">
-    <div class="container nav__wrap">
-      <a class="brand" href="index.html" aria-label="Elit LED">
-        <picture>
-          <!-- <source srcset="img/newLogo.webp" type="image/webp"> -->
-          <img src="img/newLogo.PNG" alt="Elit LED" />
-        </picture>
-      </a>
+    <!-- ===== NAV (CSS-only hamburger) ===== -->
+    <nav class="nav">
+        <div class="container nav__wrap">
+            <a class="brand" href="index.html" aria-label="Elit LED">
+                <picture>
+                    <!-- <source srcset="img/newLogo.webp" type="image/webp"> -->
+                    <img src="img/newLogo.PNG" alt="Elit LED" />
+                </picture>
+            </a>
 
-      <ul class="nav__links" id="primary-menu">
-        <li><a href="index.html" class="active" aria-current="page">Anasayfa</a></li>
-        <!-- <li><a href="product.html">Ürünlerimiz</a></li> -->
-        <li><a href="hesapla.html">Hesapla</a></li>
-        <li><a href="service.html">Hizmetlerimiz</a></li>
-        <li><a href="index.html#portfolio">Çalışmalar</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="index.html#iletisim">İletişim</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div class="header-spacer"></div>
-
-
-
-
-  <div class="container">
-    <h1>Profesyonel LED Ekran Fiyat Hesaplama (USD)</h1>
-
-    <label for="alan">Kullanım Alanı</label>
-    <select id="alan"><option value="ic">İç Mekan</option><option value="dis">Dış Mekan</option></select>
-    <label for="montajTipi">Ekran Montaj Tipi</label>
-    <select id="montajTipi"><option value="duvar">Duvara Monte</option><option value="ayakli">Ayaklı Stand (Poster)</option></select>
-    <label for="kasaTipi">Kasa Tipi</label>
-    <select id="kasaTipi"><option value="tek">Tek Taraflı</option><option value="cift">Çift Taraflı</option></select>
-    <label for="mesafe">İzleme Mesafesi (metre)</label>
-    <input type="number" id="mesafe" placeholder="Örn: 3">
-    <label for="pikselAraligi">Piksel Aralığı</label>
-    <select id="pikselAraligi"><option value="p1.86">P1.86</option><option value="p2.5">P2.5</option><option value="p3">P3</option><option value="p4">P4</option><option value="p5">P5</option><option value="p8">P8</option><option value="p10">P10</option></select>
-    <label>Ekran Boyutu</label>
-    <div class="row">
-      <div><label for="genislik">Genişlik (cm)</label><select id="genislik"></select></div>
-      <div><label for="yukseklik">Yükseklik (cm)</label><select id="yukseklik"></select></div>
-    </div>
-    <div id="pixelInfo" class="info-box">...</div>
-    <div id="energyInfo" class="info-box">...</div>
-    <button onclick="hesapla()">Fiyat Hesapla</button>
-    <div class="result" id="sonuc"></div>
-    
-    <div id="teklifWrapper">
-        <div class="offer-note">
-            <p><strong>Önemli Not:</strong> Fiyatlar tahmini olup, nihai teklifi içermemektedir.</p>
-            <p>Nihai teklif için lütfen aşağıdaki formu doldurunuz.</p>
+            <ul class="nav__links" id="primary-menu">
+                <li><a href="index.html" class="active" aria-current="page">Anasayfa</a></li>
+                <!-- <li><a href="product.html">Ürünlerimiz</a></li> -->
+                <li><a href="hesapla.html">Hesapla</a></li>
+                <li><a href="service.html">Hizmetlerimiz</a></li>
+                <li><a href="index.html#portfolio">Çalışmalar</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#iletisim">İletişim</a></li>
+            </ul>
         </div>
-        <form id="contactForm" method="POST">
-            <h3>Nihai Teklif İçin Bilgilerinizi Girin</h3>
-            <label for="musteriAd">Adınız (İsteğe Bağlı)</label>
-            <input type="text" id="musteriAd" name="Ad" placeholder="Adınız">
-            <label for="musteriSoyad">Soyadınız (İsteğe Bağlı)</label>
-            <input type="text" id="musteriSoyad" name="Soyad" placeholder="Soyadınız">
-            <label id="telefonLabel" for="musteriTelefon">Telefon</label>
-            <input type="tel" id="musteriTelefon" name="Telefon" placeholder="5xx xxx xx xx">
-            <label for="musteriIl">İl (Zorunlu)</label>
-            <select id="musteriIl" name="İl" required><option value="">Lütfen Bir İl Seçin</option></select>
-            <label for="musteriMail">E-posta Adresiniz (İsteğe Bağlı)</label>
-            <input type="email" id="musteriMail" name="E-posta" placeholder="ornek@mail.com">
-            <input type="hidden" name="_subject" value="Web Siteden Yeni LED Ekran Teklif İsteği!">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="Proje Özeti" id="projeOzetiInput">
-            
-            <button type="button" id="teklifButton">Teklif Al</button>
-        </form>
+    </nav>
+    <div class="header-spacer"></div>
+
+
+
+
+    <div class="container">
+        <h1>Profesyonel LED Ekran Fiyat Hesaplama (USD)</h1>
+
+        <label for="alan">Kullanım Alanı</label>
+        <select id="alan">
+            <option value="ic">İç Mekan</option>
+            <option value="dis">Dış Mekan</option>
+        </select>
+        <label for="montajTipi">Ekran Montaj Tipi</label>
+        <select id="montajTipi">
+            <option value="duvar">Duvara Monte</option>
+            <option value="ayakli">Ayaklı Stand (Poster)</option>
+        </select>
+        <label for="kasaTipi">Kasa Tipi</label>
+        <select id="kasaTipi">
+            <option value="tek">Tek Taraflı</option>
+            <option value="cift">Çift Taraflı</option>
+        </select>
+        <label for="mesafe">İzleme Mesafesi (metre)</label>
+        <input type="number" id="mesafe" placeholder="Örn: 3">
+        <label for="pikselAraligi">Piksel Aralığı</label>
+        <select id="pikselAraligi">
+            <option value="p1.86">P1.86</option>
+            <option value="p2.5">P2.5</option>
+            <option value="p3">P3</option>
+            <option value="p4">P4</option>
+            <option value="p5">P5</option>
+            <option value="p8">P8</option>
+            <option value="p10">P10</option>
+        </select>
+        <label>Ekran Boyutu</label>
+        <div class="row">
+            <div><label for="genislik">Genişlik (cm)</label><select id="genislik"></select></div>
+            <div><label for="yukseklik">Yükseklik (cm)</label><select id="yukseklik"></select></div>
+        </div>
+        <div id="pixelInfo" class="info-box">...</div>
+        <div id="energyInfo" class="info-box">...</div>
+        <button onclick="hesapla()">Fiyat Hesapla</button>
+        <div class="result" id="sonuc"></div>
+
+        <div id="teklifWrapper">
+            <div id="offerNote" class="offer-note">
+                <p><strong>Önemli Not:</strong> Fiyatlar tahmini olup, nihai teklifi içermemektedir.</p>
+                <p>Nihai teklif için lütfen aşağıdaki formu doldurunuz.</p>
+            </div>
+            <form id="contactForm" method="POST">
+                <h3>Nihai Teklif İçin Bilgilerinizi Girin</h3>
+                <label for="musteriAd">Adınız (İsteğe Bağlı)</label>
+                <input type="text" id="musteriAd" name="Ad" placeholder="Adınız">
+                <label for="musteriSoyad">Soyadınız (İsteğe Bağlı)</label>
+                <input type="text" id="musteriSoyad" name="Soyad" placeholder="Soyadınız">
+                <label id="telefonLabel" for="musteriTelefon">Telefon</label>
+                <input type="tel" id="musteriTelefon" name="Telefon" placeholder="5xx xxx xx xx">
+                <label for="musteriIl">İl (Zorunlu)</label>
+                <select id="musteriIl" name="İl" required>
+                    <option value="">Lütfen Bir İl Seçin</option>
+                </select>
+                <label for="musteriMail">E-posta Adresiniz (İsteğe Bağlı)</label>
+                <input type="email" id="musteriMail" name="E-posta" placeholder="ornek@mail.com">
+                <input type="hidden" name="_subject" value="Web Siteden Yeni LED Ekran Teklif İsteği!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="Proje Özeti" id="projeOzetiInput">
+                <input type="hidden" name="Cihaz Tipi" id="cihazTipiInput">
+
+                <button type="button" id="teklifButton">Teklif Al</button>
+            </form>
+            <div id="successPlaceholder" style="display: none;">Talebiniz tarafımıza başarıyla ulaştı.</div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    var PRICES = {
-        modules:{ic:{'p1.86':{fiyat:25,piksel:{w:172,h:86}},'p2.5':{fiyat:15.5,piksel:{w:128,h:64}},'p3':{fiyat:12.5,piksel:{w:104,h:52}},'p4':{fiyat:10,piksel:{w:80,h:40}}},dis:{'p2.5':{fiyat:36,piksel:{w:128,h:64}},'p3':{fiyat:24,piksel:{w:104,h:52}},'p4':{fiyat:15,piksel:{w:80,h:40}},'p5':{fiyat:11,piksel:{w:64,h:32}},'p8':{fiyat:9,piksel:{w:32,h:16}},'p10':{fiyat:8,piksel:{w:32,h:16}}}},
-        cards:{r712:12},adapters:{ic_40a:9,dis_60a:13},
-        players:[{ad:"HD-A3L SDK'LI",maxPiksel:655360,fiyat:85},{ad:'HD-A5L',maxPiksel:1310720,fiyat:175},{ad:'HD-A6L',maxPiksel:2304000,fiyat:285},{ad:'HD-A7',maxPiksel:5160960,fiyat:1400},{ad:'HD-A8',maxPiksel:8294400,fiyat:1975}],
-        cases_lookup:{'16':{'16x32':{tek:6.5,cift:13},'16x64':{tek:10.5,cift:21},'16x96':{tek:14.5,cift:29},'16x128':{tek:17.5,cift:35},'16x160':{tek:21,cift:42},'16x192':{tek:24,cift:46},'16x224':{tek:27.5,cift:52},'16x256':{tek:30.5,cift:59}},'32':{'32x32':{tek:11.5,cift:23},'32x64':{tek:16,cift:32},'32x96':{tek:21,cift:39.5},'32x128':{tek:25,cift:48},'32x160':{tek:31.5,cift:59},'32x192':{tek:37,cift:67},'32x224':{tek:44,cift:76.5},'32x256':{tek:52.5,cift:86.5}},'48':{'48x64':{tek:21,cift:40},'48x96':{tek:28,cift:52.5},'48x128':{tek:39,cift:62.5},'48x160':{tek:43,cift:75},'48x192':{tek:48.5,cift:87},'48x224':{tek:55,cift:97.5},'48x256':{tek:64,cift:112.5}},'64':{'64x64':{tek:27,cift:50},'64x96':{tek:36,cift:66},'64x128':{tek:45.5,cift:82.5},'64x160':{tek:56,cift:100},'64x192':{tek:66,cift:120.5},'64x224':{tek:76.5,cift:140.5},'64x256':{tek:87,cift:157}},'80':{'80x64':{tek:32,cift:60},'80x96':{tek:44,cift:80.5},'80x128':{tek:54.5,cift:99.5},'80x160':{tek:66.5,cift:120},'80x192':{tek:82.5,cift:141},'80x224':{tek:89,cift:159},'80x256':{tek:99.5,cift:180}},'96':{'96x64':{tek:36,cift:66},'96x96':{tek:49,cift:91},'96x128':{tek:61.5,cift:112},'96x160':{tek:76.5,cift:138},'96x192':{tek:89,cift:159.5},'96x224':{tek:101.5,cift:182.5},'96x256':{tek:116,cift:206.5}}},
-        cases_fallback_sqm:{tek_tarafli:55,cift_tarafli:100}
-    };
-    var SARF_MALZEME_FIYATI = 15.00; var karMarji = 1.40; var kdvOrani = 0.20;
-    var modulGenislik = 32; var modulYukseklik = 16; var AMPER_CEKIMI_IC = 1.8;
-    var AMPER_CEKIMI_DIS = 2.0; var ELEKTRIK_VOLTAJI = 220;
-    
-    var alanSelect = document.getElementById("alan");
-    var mesafeInput = document.getElementById("mesafe");
-    var pikselSelect = document.getElementById("pikselAraligi");
-    var genislikSelect = document.getElementById("genislik");
-    var yukseklikSelect = document.getElementById("yukseklik");
-    var pixelInfoDiv = document.getElementById("pixelInfo");
-    var energyInfoDiv = document.getElementById("energyInfo");
-    var sonucDiv = document.getElementById("sonuc");
-    var teklifWrapper = document.getElementById("teklifWrapper");
-    var teklifButton = document.getElementById("teklifButton");
-    var musteriIlSelect = document.getElementById("musteriIl");
-    var musteriTelefon = document.getElementById("musteriTelefon");
-    var telefonLabel = document.getElementById("telefonLabel");
-    var contactForm = document.getElementById("contactForm");
+    <script>
+        var PRICES = {
+            modules: { ic: { 'p1.86': { fiyat: 25, piksel: { w: 172, h: 86 } }, 'p2.5': { fiyat: 15.5, piksel: { w: 128, h: 64 } }, 'p3': { fiyat: 12.5, piksel: { w: 104, h: 52 } }, 'p4': { fiyat: 10, piksel: { w: 80, h: 40 } } }, dis: { 'p2.5': { fiyat: 36, piksel: { w: 128, h: 64 } }, 'p3': { fiyat: 24, piksel: { w: 104, h: 52 } }, 'p4': { fiyat: 15, piksel: { w: 80, h: 40 } }, 'p5': { fiyat: 11, piksel: { w: 64, h: 32 } }, 'p8': { fiyat: 9, piksel: { w: 32, h: 16 } }, 'p10': { fiyat: 8, piksel: { w: 32, h: 16 } } } },
+            cards: { r712: 12 }, adapters: { ic_40a: 9, dis_60a: 13 },
+            players: [{ ad: "HD-A3L SDK'LI", maxPiksel: 655360, fiyat: 85 }, { ad: 'HD-A5L', maxPiksel: 1310720, fiyat: 175 }, { ad: 'HD-A6L', maxPiksel: 2304000, fiyat: 285 }, { ad: 'HD-A7', maxPiksel: 5160960, fiyat: 1400 }, { ad: 'HD-A8', maxPiksel: 8294400, fiyat: 1975 }],
+            cases_lookup: { '16': { '16x32': { tek: 6.5, cift: 13 }, '16x64': { tek: 10.5, cift: 21 }, '16x96': { tek: 14.5, cift: 29 }, '16x128': { tek: 17.5, cift: 35 }, '16x160': { tek: 21, cift: 42 }, '16x192': { tek: 24, cift: 46 }, '16x224': { tek: 27.5, cift: 52 }, '16x256': { tek: 30.5, cift: 59 } }, '32': { '32x32': { tek: 11.5, cift: 23 }, '32x64': { tek: 16, cift: 32 }, '32x96': { tek: 21, cift: 39.5 }, '32x128': { tek: 25, cift: 48 }, '32x160': { tek: 31.5, cift: 59 }, '32x192': { tek: 37, cift: 67 }, '32x224': { tek: 44, cift: 76.5 }, '32x256': { tek: 52.5, cift: 86.5 } }, '48': { '48x64': { tek: 21, cift: 40 }, '48x96': { tek: 28, cift: 52.5 }, '48x128': { tek: 39, cift: 62.5 }, '48x160': { tek: 43, cift: 75 }, '48x192': { tek: 48.5, cift: 87 }, '48x224': { tek: 55, cift: 97.5 }, '48x256': { tek: 64, cift: 112.5 } }, '64': { '64x64': { tek: 27, cift: 50 }, '64x96': { tek: 36, cift: 66 }, '64x128': { tek: 45.5, cift: 82.5 }, '64x160': { tek: 56, cift: 100 }, '64x192': { tek: 66, cift: 120.5 }, '64x224': { tek: 76.5, cift: 140.5 }, '64x256': { tek: 87, cift: 157 } }, '80': { '80x64': { tek: 32, cift: 60 }, '80x96': { tek: 44, cift: 80.5 }, '80x128': { tek: 54.5, cift: 99.5 }, '80x160': { tek: 66.5, cift: 120 }, '80x192': { tek: 82.5, cift: 141 }, '80x224': { tek: 89, cift: 159 }, '80x256': { tek: 99.5, cift: 180 } }, '96': { '96x64': { tek: 36, cift: 66 }, '96x96': { tek: 49, cift: 91 }, '96x128': { tek: 61.5, cift: 112 }, '96x160': { tek: 76.5, cift: 138 }, '96x192': { tek: 89, cift: 159.5 }, '96x224': { tek: 101.5, cift: 182.5 }, '96x256': { tek: 116, cift: 206.5 } } },
+            cases_fallback_sqm: { tek_tarafli: 55, cift_tarafli: 100 }
+        };
+        var SARF_MALZEME_FIYATI = 15.00; var karMarji = 1.40; var kdvOrani = 0.20;
+        var modulGenislik = 32; var modulYukseklik = 16; var AMPER_CEKIMI_IC = 1.8;
+        var AMPER_CEKIMI_DIS = 2.0; var ELEKTRIK_VOLTAJI = 220;
 
-    function isMobile() { return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent); }
+        var detailedPriceBreakdown = {};
 
-    function populateIller() {
-        var iller = ["Adana","Adıyaman","Afyonkarahisar","Ağrı","Amasya","Ankara","Antalya","Artvin","Aydın","Balıkesir","Bilecik","Bingöl","Bitlis","Bolu","Burdur","Bursa","Çanakkale","Çankırı","Çorum","Denizli","Diyarbakır","Edirne","Elazığ","Erzincan","Erzurum","Eskişehir","Gaziantep","Giresun","Gümüşhane","Hakkari","Hatay","Isparta","Mersin","İstanbul","İzmir","Kars","Kastamonu","Kayseri","Kırklareli","Kırşehir","Kocaeli","Konya","Kütahya","Malatya","Manisa","Kahramanmaraş","Mardin","Muğla","Muş","Nevşehir","Niğde","Ordu","Rize","Sakarya","Samsun","Siirt","Sinop","Sivas","Tekirdağ","Tokat","Trabzon","Tunceli","Şanlıurfa","Uşak","Van","Yozgat","Zonguldak","Aksaray","Bayburt","Karaman","Kırıkkale","Batman","Şırnak","Bartın","Ardahan","Iğdır","Yalova","Karabük","Kilis","Osmaniye","Düzce"];
-        var oncelikli = ["İstanbul", "Ankara", "İzmir"];
-        oncelikli.forEach(function(il){ musteriIlSelect.add(new Option(il, il)); });
-        var ayirici = new Option("---", ""); ayirici.disabled = true; musteriIlSelect.add(ayirici);
-        var digerIller = iller.filter(function(il){ return oncelikli.indexOf(il) < 0; }).sort();
-        digerIller.forEach(function(il){ musteriIlSelect.add(new Option(il, il)); });
-    }
+        var alanSelect = document.getElementById("alan");
+        var mesafeInput = document.getElementById("mesafe");
+        var pikselSelect = document.getElementById("pikselAraligi");
+        var genislikSelect = document.getElementById("genislik");
+        var yukseklikSelect = document.getElementById("yukseklik");
+        var pixelInfoDiv = document.getElementById("pixelInfo");
+        var energyInfoDiv = document.getElementById("energyInfo");
+        var sonucDiv = document.getElementById("sonuc");
+        var teklifWrapper = document.getElementById("teklifWrapper");
+        var teklifButton = document.getElementById("teklifButton");
+        var musteriIlSelect = document.getElementById("musteriIl");
+        var musteriTelefon = document.getElementById("musteriTelefon");
+        var telefonLabel = document.getElementById("telefonLabel");
+        var contactForm = document.getElementById("contactForm");
 
-    function populateDimensionDropdowns() {
-        genislikSelect.innerHTML = ''; yukseklikSelect.innerHTML = '';
-        for (var i = modulGenislik; i <= 960; i += modulGenislik) { genislikSelect.add(new Option(i + " cm", i)); }
-        for (var i = modulYukseklik; i <= 960; i += modulYukseklik) { yukseklikSelect.add(new Option(i + " cm", i)); }
-    }
-    
-    function updateAllInfo() { guncelleOneriVeSecenekler(); guncellePikselBilgisi(); guncelleEnerjiTuketimi(); }
-    
-    function guncelleOneriVeSecenekler() {
-        var alan = alanSelect.value; var mesafe = parseFloat(mesafeInput.value) || 0; var options = pikselSelect.options;
-        for (var i = 0; i < options.length; i++) { var pValue = options[i].value; options[i].style.display = (alan === 'ic' && PRICES.modules.ic[pValue]) || (alan === 'dis' && PRICES.modules.dis[pValue]) ? '' : 'none'; }
-        var onerilenPikselKodu = '';
-        if (alan === 'ic') {
-            if (mesafe > 0 && mesafe < 2) { onerilenPikselKodu = 'p1.86'; } else if (mesafe < 3) { onerilenPikselKodu = 'p2.5'; }
-            else if (mesafe < 4) { onerilenPikselKodu = 'p3'; } else { onerilenPikselKodu = 'p4'; }
-        } else {
-            if (mesafe > 0 && mesafe < 3.5) { onerilenPikselKodu = 'p2.5'; } else if (mesafe < 5) { onerilenPikselKodu = 'p3'; }
-            else if (mesafe < 6) { onerilenPikselKodu = 'p4'; } else if (mesafe < 8) { onerilenPikselKodu = 'p5'; }
-            else if (mesafe < 10) { onerilenPikselKodu = 'p8'; } else { onerilenPikselKodu = 'p10'; }
-        }
-        var onerilenBulunduVeSecildi = false;
-        for (var i = 0; i < options.length; i++) {
-            var option = options[i]; option.text = option.text.replace(' (Önerilen)', '');
-            if (option.value === onerilenPikselKodu && option.style.display !== 'none') { option.text += ' (Önerilen)'; option.selected = true; onerilenBulunduVeSecildi = true; }
-        }
-        if (!onerilenBulunduVeSecildi && pikselSelect.selectedIndex > -1 && pikselSelect.options[pikselSelect.selectedIndex].style.display === 'none') {
-            for(var i = 0; i < options.length; i++){ var option = options[i]; if(option.style.display !== 'none'){ option.selected = true; break; } }
-        }
-    }
+        function isMobile() { return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent); }
 
-    function guncellePikselBilgisi() {
-        if (!genislikSelect.value || !yukseklikSelect.value) return; 
-        var alan = alanSelect.value; var pikselKodu = pikselSelect.value; var genislik = parseInt(genislikSelect.value); var yukseklik = parseInt(yukseklikSelect.value);
-        var modulInfo = PRICES.modules[alan][pikselKodu]; if (!modulInfo) { pixelInfoDiv.innerHTML = '...'; return; }
-        var modulSayisiX = Math.ceil(genislik / modulGenislik); var modulSayisiY = Math.ceil(yukseklik / modulYukseklik);
-        var toplamPikselX = modulSayisiX * modulInfo.piksel.w; var toplamPikselY = modulSayisiY * modulInfo.piksel.h;
-        pixelInfoDiv.innerHTML = "Ekran Çözünürlüğü: <strong>" + toplamPikselX + " x " + toplamPikselY + " Piksel</strong>";
-    }
-
-    function guncelleEnerjiTuketimi() {
-        if (!genislikSelect.value || !yukseklikSelect.value) return; 
-        var alan = alanSelect.value; var genislik = parseInt(genislikSelect.value); var yukseklik = parseInt(yukseklikSelect.value);
-        var modulSayisiX = Math.ceil(genislik / modulGenislik); var modulSayisiY = Math.ceil(yukseklik / modulYukseklik);
-        var toplamModul = modulSayisiX * modulSayisiY; var adaptorSayisi = Math.ceil(toplamModul / 6);
-        var amperCekimi = (alan === 'ic') ? AMPER_CEKIMI_IC : AMPER_CEKIMI_DIS;
-        var toplamAmper220V = adaptorSayisi * amperCekimi; var toplamGucWatt = toplamAmper220V * ELEKTRIK_VOLTAJI;
-        var saatlikTuketimKWh = toplamGucWatt / 1000; var ortalamaTuketimKWh = saatlikTuketimKWh / 2;
-        energyInfoDiv.innerHTML = "Tahmini Enerji Tüketimi (Maksimum): <strong>" + saatlikTuketimKWh.toFixed(2) + " kW / saat</strong>" +
-            "<small>Not: Tüketim değeri ekrandaki tüm ledler beyaz iken elde edilebilecek olan maksimum değerdir. Ortalama tüketim yaklaşık <strong>" + ortalamaTuketimKWh.toFixed(2) + " kW / saat</strong> değeridir.</small>";
-    }
-
-    function getFormattedSummary() {
-        var alan = alanSelect.options[alanSelect.selectedIndex].text;
-        var montaj = document.getElementById("montajTipi").options[document.getElementById("montajTipi").selectedIndex].text;
-        var kasa = document.getElementById("kasaTipi").options[document.getElementById("kasaTipi").selectedIndex].text;
-        var mesafe = mesafeInput.value + " metre";
-        var piksel = pikselSelect.options[pikselSelect.selectedIndex].text.replace(' (Önerilen)', '');
-        var genislik = genislikSelect.value + " cm";
-        var yukseklik = yukseklikSelect.value + " cm";
-        var cozunurluk = pixelInfoDiv.textContent;
-        var enerji = energyInfoDiv.textContent;
-        var fiyat = sonucDiv.querySelector(".total") ? sonucDiv.querySelector(".total").textContent : "Hesaplanmadı";
-        return "PROJE ÖZETİ:\n" + "--------------------------\n" + "Kullanım Alanı: " + alan + "\n" +
-               "Montaj Tipi: " + montaj + "\n" + "Kasa Tipi: " + kasa + "\n" + "İzleme Mesafesi: " + mesafe + "\n" +
-               "Seçilen Piksel Aralığı: " + piksel + "\n" + "Ekran Boyutu: " + genislik + " x " + yukseklik + "\n" +
-               cozunurluk + "\n" + enerji + "\n\n" + fiyat.trim();
-    }
-
-    function teklifGonder(event) {
-        event.preventDefault();
-
-        // Sadece PC için form geçerliliğini kontrol et
-        if (!isMobile() && !contactForm.checkValidity()) {
-            contactForm.reportValidity();
-            return;
+        function populateIller() {
+            var iller = ["Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli", "Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkari", "Hatay", "Isparta", "Mersin", "İstanbul", "İzmir", "Kars", "Kastamonu", "Kayseri", "Kırklareli", "Kırşehir", "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "Kahramanmaraş", "Mardin", "Muğla", "Muş", "Nevşehir", "Niğde", "Ordu", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas", "Tekirdağ", "Tokat", "Trabzon", "Tunceli", "Şanlıurfa", "Uşak", "Van", "Yozgat", "Zonguldak", "Aksaray", "Bayburt", "Karaman", "Kırıkkale", "Batman", "Şırnak", "Bartın", "Ardahan", "Iğdır", "Yalova", "Karabük", "Kilis", "Osmaniye", "Düzce"];
+            var oncelikli = ["İstanbul", "Ankara", "İzmir"];
+            oncelikli.forEach(function (il) { musteriIlSelect.add(new Option(il, il)); });
+            var ayirici = new Option("---", ""); ayirici.disabled = true; musteriIlSelect.add(ayirici);
+            var digerIller = iller.filter(function (il) { return oncelikli.indexOf(il) < 0; }).sort();
+            digerIller.forEach(function (il) { musteriIlSelect.add(new Option(il, il)); });
         }
 
-        var il = musteriIlSelect.value;
-        if (!il) {
-            alert("Lütfen İl seçimi yapınız.");
-            return;
+        function populateDimensionDropdowns() {
+            genislikSelect.innerHTML = ''; yukseklikSelect.innerHTML = '';
+            for (var i = modulGenislik; i <= 960; i += modulGenislik) { genislikSelect.add(new Option(i + " cm", i)); }
+            for (var i = modulYukseklik; i <= 960; i += modulYukseklik) { yukseklikSelect.add(new Option(i + " cm", i)); }
         }
 
-        // Proje özetini formdaki gizli alana her zaman ekle
-        document.getElementById("projeOzetiInput").value = getFormattedSummary();
+        function updateAllInfo() { guncelleOneriVeSecenekler(); guncellePikselBilgisi(); guncelleEnerjiTuketimi(); }
 
-        // Eğer mobil ise, WhatsApp'ı YİNE DE aç
+        function guncelleOneriVeSecenekler() {
+            var alan = alanSelect.value; var mesafe = parseFloat(mesafeInput.value) || 0; var options = pikselSelect.options;
+            for (var i = 0; i < options.length; i++) { var pValue = options[i].value; options[i].style.display = (alan === 'ic' && PRICES.modules.ic[pValue]) || (alan === 'dis' && PRICES.modules.dis[pValue]) ? '' : 'none'; }
+            var onerilenPikselKodu = '';
+            if (alan === 'ic') {
+                if (mesafe > 0 && mesafe < 2) { onerilenPikselKodu = 'p1.86'; } else if (mesafe < 3) { onerilenPikselKodu = 'p2.5'; }
+                else if (mesafe < 4) { onerilenPikselKodu = 'p3'; } else { onerilenPikselKodu = 'p4'; }
+            } else {
+                if (mesafe > 0 && mesafe < 3.5) { onerilenPikselKodu = 'p2.5'; } else if (mesafe < 5) { onerilenPikselKodu = 'p3'; }
+                else if (mesafe < 6) { onerilenPikselKodu = 'p4'; } else if (mesafe < 8) { onerilenPikselKodu = 'p5'; }
+                else if (mesafe < 10) { onerilenPikselKodu = 'p8'; } else { onerilenPikselKodu = 'p10'; }
+            }
+            var onerilenBulunduVeSecildi = false;
+            for (var i = 0; i < options.length; i++) {
+                var option = options[i]; option.text = option.text.replace(' (Önerilen)', '');
+                if (option.value === onerilenPikselKodu && option.style.display !== 'none') { option.text += ' (Önerilen)'; option.selected = true; onerilenBulunduVeSecildi = true; }
+            }
+            if (!onerilenBulunduVeSecildi && pikselSelect.selectedIndex > -1 && pikselSelect.options[pikselSelect.selectedIndex].style.display === 'none') {
+                for (var i = 0; i < options.length; i++) { var option = options[i]; if (option.style.display !== 'none') { option.selected = true; break; } }
+            }
+        }
+
+        function guncellePikselBilgisi() {
+            if (!genislikSelect.value || !yukseklikSelect.value) return;
+            var alan = alanSelect.value; var pikselKodu = pikselSelect.value; var genislik = parseInt(genislikSelect.value); var yukseklik = parseInt(yukseklikSelect.value);
+            var modulInfo = PRICES.modules[alan][pikselKodu]; if (!modulInfo) { pixelInfoDiv.innerHTML = '...'; return; }
+            var modulSayisiX = Math.ceil(genislik / modulGenislik); var modulSayisiY = Math.ceil(yukseklik / modulYukseklik);
+            var toplamPikselX = modulSayisiX * modulInfo.piksel.w; var toplamPikselY = modulSayisiY * modulInfo.piksel.h;
+            pixelInfoDiv.innerHTML = "Ekran Çözünürlüğü: <strong>" + toplamPikselX + " x " + toplamPikselY + " Piksel</strong>";
+        }
+
+        function guncelleEnerjiTuketimi() {
+            if (!genislikSelect.value || !yukseklikSelect.value) return;
+            var alan = alanSelect.value; var genislik = parseInt(genislikSelect.value); var yukseklik = parseInt(yukseklikSelect.value);
+            var modulSayisiX = Math.ceil(genislik / modulGenislik); var modulSayisiY = Math.ceil(yukseklik / modulYukseklik);
+            var toplamModul = modulSayisiX * modulSayisiY; var adaptorSayisi = Math.ceil(toplamModul / 6);
+            var amperCekimi = (alan === 'ic') ? AMPER_CEKIMI_IC : AMPER_CEKIMI_DIS;
+            var toplamAmper220V = adaptorSayisi * amperCekimi; var toplamGucWatt = toplamAmper220V * ELEKTRIK_VOLTAJI;
+            var saatlikTuketimKWh = toplamGucWatt / 1000; var ortalamaTuketimKWh = saatlikTuketimKWh / 2;
+            energyInfoDiv.innerHTML = "Tahmini Enerji Tüketimi (Maksimum): <strong>" + saatlikTuketimKWh.toFixed(2) + " kW / saat</strong>" +
+                "<small>Not: Tüketim değeri ekrandaki tüm ledler beyaz iken elde edilebilecek olan maksimum değerdir. Ortalama tüketim yaklaşık <strong>" + ortalamaTuketimKWh.toFixed(2) + " kW / saat</strong> değeridir.</small>";
+        }
+
+        function getFormattedSummary() {
+            var alan = alanSelect.options[alanSelect.selectedIndex].text;
+            var montaj = document.getElementById("montajTipi").options[document.getElementById("montajTipi").selectedIndex].text;
+            var kasa = document.getElementById("kasaTipi").options[document.getElementById("kasaTipi").selectedIndex].text;
+            var mesafe = mesafeInput.value + " metre";
+            var piksel = pikselSelect.options[pikselSelect.selectedIndex].text.replace(' (Önerilen)', '');
+            var genislik = genislikSelect.value + " cm";
+            var yukseklik = yukseklikSelect.value + " cm";
+            var cozunurluk = pixelInfoDiv.textContent;
+            var enerji = energyInfoDiv.textContent;
+            var fiyat = sonucDiv.querySelector(".total") ? sonucDiv.querySelector(".total").textContent : "Hesaplanmadı";
+            return "PROJE ÖZETİ:\n" + "--------------------------\n" + "Kullanım Alanı: " + alan + "\n" +
+                "Montaj Tipi: " + montaj + "\n" + "Kasa Tipi: " + kasa + "\n" + "İzleme Mesafesi: " + mesafe + "\n" +
+                "Seçilen Piksel Aralığı: " + piksel + "\n" + "Ekran Boyutu: " + genislik + " x " + yukseklik + "\n" +
+                cozunurluk + "\n" + enerji + "\n\n" + fiyat.trim();
+        }
+
+        function getDetailedEmailSummary() {
+            var genelOzet = getFormattedSummary();
+            var p = detailedPriceBreakdown;
+            var priceDetails = "DETAYLI FİYAT DÖKÜMÜ (MALİYET):\n" +
+                "------------------------------------\n" +
+                `LED Panel: ${p.modulAdet} adet (${p.modulTip}) -> ${p.modulToplamFiyat.toFixed(2)} USD\n` +
+                `CNC Kasa: 1 adet ${p.kasaNot} -> ${p.kasaToplamFiyat.toFixed(2)} USD\n` +
+                `Oynatıcı Kart: 1 adet (${p.playerAd}) -> ${p.playerFiyati.toFixed(2)} USD\n` +
+                `Alıcı Kart (HD-R712): ${p.kartAdet} adet -> ${p.kartToplamFiyat.toFixed(2)} USD\n` +
+                `Güç Kaynağı: ${p.adaptorAdet} adet (${p.adaptorTip}) -> ${p.adaptorToplamFiyat.toFixed(2)} USD\n` +
+                `Sarf Malzemeler: 1 paket -> ${p.sarfMalzemeFiyati.toFixed(2)} USD\n` +
+                "------------------------------------\n" +
+                `MALİYET ARA TOPLAM: ${p.maliyetAraToplam.toFixed(2)} USD\n` +
+                `KAR MARJI UYGULANMIŞ TOPLAM (x${p.karMarji}): ${p.karliAraToplam.toFixed(2)} USD\n` +
+                `KDV TUTARI (%${p.kdvOrani * 100}): ${p.kdvTutari.toFixed(2)} USD\n\n` +
+                `ANAHTAR TESLİM SATIŞ FİYATI: ${p.satisFiyati.toFixed(2)} USD`;
+            return genelOzet.split('ANAHTAR TESLİM')[0] + priceDetails;
+        }
+
+        function teklifGonder(event) {
+            event.preventDefault();
+            var form = document.getElementById('contactForm');
+            var button = document.getElementById('teklifButton');
+            var successPlaceholder = document.getElementById('successPlaceholder');
+            var offerNote = document.getElementById('offerNote');
+
+            if (!isMobile() && !form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            var il = document.getElementById("musteriIl").value;
+            if (!il) {
+                alert("Lütfen İl seçimi yapınız.");
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = 'Gönderiliyor...';
+
+            document.getElementById("projeOzetiInput").value = getDetailedEmailSummary();
+            document.getElementById("cihazTipiInput").value = isMobile() ? "Mobil" : "Masaüstü (PC)";
+
+            var formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    offerNote.style.display = 'none'; // Notu gizle
+                    form.style.display = 'none'; // Formu gizle
+                    successPlaceholder.style.display = 'block'; // Başarı mesajını göster
+                    form.reset();
+
+                    if (isMobile()) {
+                        var ozet = getFormattedSummary();
+                        var musteriAd = document.getElementById("musteriAd").value || "Belirtilmedi";
+                        var musteriSoyad = document.getElementById("musteriSoyad").value || "Belirtilmedi";
+                        var musteriMail = document.getElementById("musteriMail").value || "Belirtilmedi";
+                        var telefonNumarasi = '905403061991';
+                        var mesaj = "Merhaba, web sitenizdeki hesaplayıcı üzerinden bir LED ekran teklifi almak istiyorum.\n\n" + ozet + "\n\n" +
+                            "MÜŞTERİ BİLGİLERİ:\n" + "--------------------------\n" +
+                            "Ad: " + musteriAd + "\n" + "Soyad: " + musteriSoyad + "\n" + "İl: " + il + "\n" + "E-posta: " + musteriMail;
+                        var encodedMesaj = encodeURIComponent(mesaj);
+                        var whatsappURL = 'https://wa.me/' + telefonNumarasi + '?text=' + encodedMesaj;
+                        window.open(whatsappURL, '_blank');
+                    }
+                } else {
+                    throw new Error('Form gönderimi başarısız oldu.');
+                }
+            }).catch(error => {
+                console.error('Form Hatası:', error);
+                alert('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+                button.disabled = false;
+                button.textContent = isMobile() ? 'WhatsApp Üzerinden Teklif Al' : 'Teklif Al';
+            });
+        }
+
+        function hesapla() {
+            // Yeni hesaplama yapıldığında formu, notu ve butonu sıfırla
+            document.getElementById('offerNote').style.display = 'block';
+            document.getElementById('contactForm').style.display = 'block';
+            document.getElementById('successPlaceholder').style.display = 'none';
+            document.getElementById('teklifButton').disabled = false;
+            document.getElementById('teklifButton').textContent = isMobile() ? 'WhatsApp Üzerinden Teklif Al' : 'Teklif Al';
+
+            var alan = alanSelect.value; var kasaTipiSecimi = document.getElementById("kasaTipi").value;
+            var genislik = parseInt(genislikSelect.value); var yukseklik = parseInt(yukseklikSelect.value); var pikselKodu = pikselSelect.value;
+            var secilenPikselOption = pikselSelect.options[pikselSelect.selectedIndex];
+            var onerilenPikselAraligi = secilenPikselOption.text.replace(' (Önerilen)', '');
+            if (!PRICES.modules[alan][pikselKodu]) {
+                sonucDiv.innerHTML = "⚠️ <b>" + onerilenPikselAraligi + "</b> paneli <b>" + (alan === 'ic' ? 'Dış Mekan' : 'İç Mekan') + "</b> için uygun değildir."; return;
+            }
+            var modulX = Math.ceil(genislik / modulGenislik); var modulY = Math.ceil(yukseklik / modulYukseklik);
+            var modulInfo = PRICES.modules[alan][pikselKodu];
+            var toplamPikselX = modulX * modulInfo.piksel.w; var toplamPikselY = modulY * modulInfo.piksel.h;
+            var ekranToplamPiksel = toplamPikselX * toplamPikselY;
+            var secilenPlayer = null;
+            for (var i = 0; i < PRICES.players.length; i++) { if (PRICES.players[i].maxPiksel >= ekranToplamPiksel) { secilenPlayer = PRICES.players[i]; break; } }
+            var playerNotu = "";
+            if (!secilenPlayer) { secilenPlayer = PRICES.players[PRICES.players.length - 1]; playerNotu = " <small>(Çözünürlük Çok Yüksek!)</small>"; }
+            var playerFiyati = secilenPlayer.fiyat; var playerAdi = secilenPlayer.ad;
+            var toplamGenislikMetre = (modulX * modulGenislik) / 100; var toplamYukseklikMetre = (modulY * modulYukseklik) / 100;
+            var toplamAlanMetrekare = toplamGenislikMetre * toplamYukseklikMetre; var toplamModul = modulX * modulY;
+            var modulBirimFiyat = PRICES.modules[alan][pikselKodu].fiyat; var modulToplamFiyat = toplamModul * modulBirimFiyat;
+            var adaptorSayisi = Math.ceil(toplamModul / 6); var adaptorBirimFiyat = alan === "ic" ? PRICES.adapters.ic_40a : PRICES.adapters.dis_60a;
+            var adaptorTipi = alan === "ic" ? "40 Amper" : "60 Amper"; var adaptorToplamFiyat = adaptorSayisi * adaptorBirimFiyat;
+            var kartSayisi; var pikselDegeri = parseFloat(pikselKodu.replace('p', ''));
+            if (pikselDegeri <= 1.86) { kartSayisi = modulX; } else if (pikselDegeri <= 2.5) { kartSayisi = Math.ceil(modulX / 2) * Math.ceil(modulY / 12); }
+            else { kartSayisi = Math.ceil(modulX / 3) * Math.ceil(modulY / 12); }
+            kartSayisi = Math.max(1, kartSayisi);
+            var kartBirimFiyat = PRICES.cards.r712; var kartToplamFiyat = kartSayisi * kartBirimFiyat;
+            var kasaToplamFiyat; var kasaHesaplamaNotu = ""; var d1 = Math.min(genislik, yukseklik); var d2 = Math.max(genislik, yukseklik);
+            var seriKeys = ['16', '32', '48', '64', '80', '96']; var seriKey = null;
+            if (seriKeys.indexOf(String(d1)) > -1) seriKey = String(d1); else if (seriKeys.indexOf(String(d2)) > -1) seriKey = String(d2);
+            var boyutKey = d1 + "x" + d2;
+            if (seriKey && PRICES.cases_lookup[seriKey] && PRICES.cases_lookup[seriKey][boyutKey]) {
+                var fiyatlar = PRICES.cases_lookup[seriKey][boyutKey];
+                kasaToplamFiyat = kasaTipiSecimi === "tek" ? fiyatlar.tek : fiyatlar.cift;
+                kasaHesaplamaNotu = "(" + seriKey + " Serisi - " + boyutKey + ")";
+            } else {
+                var kasaBirimFiyat = kasaTipiSecimi === "tek" ? PRICES.cases_fallback_sqm.tek_tarafli : PRICES.cases_fallback_sqm.cift_tarafli;
+                kasaToplamFiyat = toplamAlanMetrekare * kasaBirimFiyat;
+                kasaHesaplamaNotu = "(Tahmini ~" + kasaBirimFiyat + "$/m²)";
+            }
+            var maliyetAraToplam = modulToplamFiyat + adaptorToplamFiyat + kartToplamFiyat + kasaToplamFiyat + playerFiyati + SARF_MALZEME_FIYATI;
+            var karliAraToplam = maliyetAraToplam * karMarji;
+            var kdvTutari = karliAraToplam * kdvOrani;
+            var satisFiyati = karliAraToplam + kdvTutari;
+
+            detailedPriceBreakdown = {
+                modulAdet: toplamModul, modulTip: onerilenPikselAraligi, modulToplamFiyat: modulToplamFiyat,
+                kasaNot: kasaHesaplamaNotu, kasaToplamFiyat: kasaToplamFiyat,
+                playerAd: playerAdi + playerNotu, playerFiyati: playerFiyati,
+                kartAdet: kartSayisi, kartToplamFiyat: kartToplamFiyat,
+                adaptorAdet: adaptorSayisi, adaptorTip: adaptorTipi, adaptorToplamFiyat: adaptorToplamFiyat,
+                sarfMalzemeFiyati: SARF_MALZEME_FIYATI,
+                maliyetAraToplam: maliyetAraToplam, karMarji: karMarji,
+                karliAraToplam: karliAraToplam, kdvOrani: kdvOrani,
+                kdvTutari: kdvTutari, satisFiyati: satisFiyati
+            };
+
+            sonucDiv.innerHTML =
+                '<h3>Proje Özeti ve Teklif</h3>' +
+                '<p><b>LED Panel:</b> ' + toplamModul + ' adet (' + onerilenPikselAraligi + ')</p>' +
+                '<p><b>CNC Kasa:</b> 1 adet ' + kasaHesaplamaNotu + '</p>' +
+                '<p><b>Oynatıcı Kart:</b> 1 adet (' + playerAdi + ')' + playerNotu + '</p>' +
+                '<p><b>Alıcı Kart (HD-R712):</b> ' + kartSayisi + ' adet</p>' +
+                '<p><b>Güç Kaynağı:</b> ' + adaptorSayisi + ' adet (' + adaptorTipi + ')</p>' +
+                '<p><b>Sarf Malzemeler:</b> 1 paket</p>' +
+                '<hr>' +
+                '<p class="total">ANAHTAR TESLİM SATIŞ FİYATI: ' + karliAraToplam.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' USD + ' + kdvTutari.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' KDV = <strong>' + satisFiyati.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' USD</strong></p>';
+
+            teklifWrapper.style.display = 'block';
+        }
+
+        // Olay Dinleyicileri ve Başlangıç Fonksiyonları
+        alanSelect.addEventListener('change', updateAllInfo);
+        mesafeInput.addEventListener('input', updateAllInfo);
+        pikselSelect.addEventListener('change', updateAllInfo);
+        genislikSelect.addEventListener('change', updateAllInfo);
+        yukseklikSelect.addEventListener('change', updateAllInfo);
+        teklifButton.addEventListener('click', teklifGonder);
+
+        // Başlangıç ayarlarını yap
         if (isMobile()) {
-            var telefonNumarasi = '905403061991';
-            var musteriAd = document.getElementById("musteriAd").value || "Belirtilmedi";
-            var musteriSoyad = document.getElementById("musteriSoyad").value || "Belirtilmedi";
-            var musteriMail = document.getElementById("musteriMail").value || "Belirtilmedi";
-            var ozet = getFormattedSummary();
-            var mesaj = "Merhaba, web sitenizdeki hesaplayıcı üzerinden bir LED ekran teklifi almak istiyorum.\n\n" + ozet + "\n\n" +
-                          "MÜŞTERİ BİLGİLERİ:\n" + "--------------------------\n" +
-                          "Ad: " + musteriAd + "\n" + "Soyad: " + musteriSoyad + "\n" + "İl: " + il + "\n" + "E-posta: " + musteriMail;
-            var encodedMesaj = encodeURIComponent(mesaj);
-            var whatsappURL = 'https://wa.me/' + telefonNumarasi + '?text=' + encodedMesaj;
-            window.open(whatsappURL, '_blank');
-        }
-
-        // Formu e-posta olarak GÖNDER (hem mobil hem de PC için)
-        contactForm.submit();
-    }
-
-    function hesapla() {
-        var alan = alanSelect.value; var kasaTipiSecimi = document.getElementById("kasaTipi").value;
-        var genislik = parseInt(genislikSelect.value); var yukseklik = parseInt(yukseklikSelect.value); var pikselKodu = pikselSelect.value;
-        var secilenPikselOption = pikselSelect.options[pikselSelect.selectedIndex];
-        var onerilenPikselAraligi = secilenPikselOption.text.replace(' (Önerilen)', '');
-        if (!PRICES.modules[alan][pikselKodu]) {
-            sonucDiv.innerHTML = "⚠️ <b>" + onerilenPikselAraligi + "</b> paneli <b>" + (alan === 'ic' ? 'Dış Mekan' : 'İç Mekan') + "</b> için uygun değildir."; return;
-        }
-        var modulX = Math.ceil(genislik / modulGenislik); var modulY = Math.ceil(yukseklik / modulYukseklik);
-        var modulInfo = PRICES.modules[alan][pikselKodu];
-        var toplamPikselX = modulX * modulInfo.piksel.w; var toplamPikselY = modulY * modulInfo.piksel.h;
-        var ekranToplamPiksel = toplamPikselX * toplamPikselY;
-        var secilenPlayer = null;
-        for (var i = 0; i < PRICES.players.length; i++) { if (PRICES.players[i].maxPiksel >= ekranToplamPiksel) { secilenPlayer = PRICES.players[i]; break; } }
-        var playerNotu = "";
-        if (!secilenPlayer) { secilenPlayer = PRICES.players[PRICES.players.length - 1]; playerNotu = " <small>(Çözünürlük Çok Yüksek!)</small>"; }
-        var playerFiyati = secilenPlayer.fiyat; var playerAdi = secilenPlayer.ad;
-        var toplamGenislikMetre = (modulX * modulGenislik) / 100; var toplamYukseklikMetre = (modulY * modulYukseklik) / 100;
-        var toplamAlanMetrekare = toplamGenislikMetre * toplamYukseklikMetre; var toplamModul = modulX * modulY;
-        var modulBirimFiyat = PRICES.modules[alan][pikselKodu].fiyat; var modulToplamFiyat = toplamModul * modulBirimFiyat;
-        var adaptorSayisi = Math.ceil(toplamModul / 6); var adaptorBirimFiyat = alan === "ic" ? PRICES.adapters.ic_40a : PRICES.adapters.dis_60a;
-        var adaptorTipi = alan === "ic" ? "40 Amper" : "60 Amper"; var adaptorToplamFiyat = adaptorSayisi * adaptorBirimFiyat;
-        var kartSayisi; var pikselDegeri = parseFloat(pikselKodu.replace('p', ''));
-        if (pikselDegeri <= 1.86) { kartSayisi = modulX; } else if (pikselDegeri <= 2.5) { kartSayisi = Math.ceil(modulX / 2) * Math.ceil(modulY / 12); }
-        else { kartSayisi = Math.ceil(modulX / 3) * Math.ceil(modulY / 12); }
-        kartSayisi = Math.max(1, kartSayisi);
-        var kartBirimFiyat = PRICES.cards.r712; var kartToplamFiyat = kartSayisi * kartBirimFiyat;
-        var kasaToplamFiyat; var kasaHesaplamaNotu = ""; var d1 = Math.min(genislik, yukseklik); var d2 = Math.max(genislik, yukseklik);
-        var seriKeys = ['16', '32', '48', '64', '80', '96']; var seriKey = null;
-        if (seriKeys.indexOf(String(d1)) > -1) seriKey = String(d1); else if (seriKeys.indexOf(String(d2)) > -1) seriKey = String(d2);
-        var boyutKey = d1 + "x" + d2;
-        if (seriKey && PRICES.cases_lookup[seriKey] && PRICES.cases_lookup[seriKey][boyutKey]) {
-            var fiyatlar = PRICES.cases_lookup[seriKey][boyutKey];
-            kasaToplamFiyat = kasaTipiSecimi === "tek" ? fiyatlar.tek : fiyatlar.cift;
-            kasaHesaplamaNotu = "(" + seriKey + " Serisi - " + boyutKey + ")";
+            teklifButton.textContent = 'WhatsApp Üzerinden Teklif Al';
+            teklifButton.classList.add('whatsapp');
+            telefonLabel.style.display = 'none';
+            musteriTelefon.style.display = 'none';
+            musteriTelefon.required = false;
         } else {
-            var kasaBirimFiyat = kasaTipiSecimi === "tek" ? PRICES.cases_fallback_sqm.tek_tarafli : PRICES.cases_fallback_sqm.cift_tarafli;
-            kasaToplamFiyat = toplamAlanMetrekare * kasaBirimFiyat;
-            kasaHesaplamaNotu = "(Tahmini ~" + kasaBirimFiyat + "$/m²)";
+            teklifButton.textContent = 'Teklif Al';
+            teklifButton.classList.add('email');
+            telefonLabel.textContent = "Telefon (Zorunlu)";
+            musteriTelefon.required = true;
         }
-        var maliyetAraToplam = modulToplamFiyat + adaptorToplamFiyat + kartToplamFiyat + kasaToplamFiyat + playerFiyati + SARF_MALZEME_FIYATI;
-        var karliAraToplam = maliyetAraToplam * karMarji;
-        var kdvTutari = karliAraToplam * kdvOrani;
-        var satisFiyati = karliAraToplam + kdvTutari;
-        
-        sonucDiv.innerHTML = 
-            '<h3>Proje Özeti ve Teklif</h3>' +
-            '<p><b>LED Panel:</b> ' + toplamModul + ' adet (' + onerilenPikselAraligi + ')</p>' +
-            '<p><b>CNC Kasa:</b> 1 adet ' + kasaHesaplamaNotu + '</p>' +
-            '<p><b>Oynatıcı Kart:</b> 1 adet (' + playerAdi + ')' + playerNotu + '</p>' +
-            '<p><b>Alıcı Kart (HD-R712):</b> ' + kartSayisi + ' adet</p>' +
-            '<p><b>Güç Kaynağı:</b> ' + adaptorSayisi + ' adet (' + adaptorTipi + ')</p>' +
-            '<p><b>Sarf Malzemeler:</b> 1 paket</p>' +
-            '<hr>' +
-            '<p class="total">ANAHTAR TESLİM SATIŞ FİYATI: ' + karliAraToplam.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USD + ' + kdvTutari.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' KDV = <strong>' + satisFiyati.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USD</strong></p>';
-        
-        teklifWrapper.style.display = 'block';
-    }
-    
-    // Olay Dinleyicileri ve Başlangıç Fonksiyonları
-    alanSelect.addEventListener('change', updateAllInfo);
-    mesafeInput.addEventListener('input', updateAllInfo);
-    pikselSelect.addEventListener('change', updateAllInfo);
-    genislikSelect.addEventListener('change', updateAllInfo);
-    yukseklikSelect.addEventListener('change', updateAllInfo);
-    teklifButton.addEventListener('click', teklifGonder);
 
-    // Başlangıç ayarlarını yap
-    if (isMobile()) {
-        teklifButton.textContent = 'WhatsApp Üzerinden Teklif Al';
-        teklifButton.classList.add('whatsapp');
-        // Mobil ise telefon alanı etiketini ve input'unu gizle
-        telefonLabel.style.display = 'none';
-        musteriTelefon.style.display = 'none';
-        musteriTelefon.required = false;
-    } else {
-        teklifButton.textContent = 'Teklif Al';
-        teklifButton.classList.add('email');
-        // PC ise telefon alanını zorunlu yap
-        telefonLabel.textContent = "Telefon (Zorunlu)";
-        musteriTelefon.required = true;
-    }
+        contactForm.action = 'https://formsubmit.co/info@elitled.com';
 
-    // Formun e-posta hedefini her zaman ayarla
-    contactForm.action = 'https://formsubmit.co/info@elitled.com';
-
-    populateIller();
-    populateDimensionDropdowns();
-    updateAllInfo();
-  </script>
+        populateIller();
+        populateDimensionDropdowns();
+        updateAllInfo();
+    </script>
 
 
 
 
 </body>
+
 </html>
