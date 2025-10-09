@@ -122,10 +122,9 @@ function AppBar() {
                                 component={ScrollLink}
                                 key={page.name}
                                 to={page.url}
-                                smooth={true}     // yumuşak kaydırma
-                                duration={600}    // animasyon süresi (ms)
+                                smooth={true}
+                                duration={600}
                                 offset={-70}
-                                //onClick={() => handleCloseNavMenu(page.url)}
                                 sx={{ my: 2, color: 'white', display: 'block', px: 3 }}
                             >
                                 {page.name}

@@ -51,7 +51,7 @@ function VideoBackground() {
         <Typography variant="h6">
           Tasarım, üretim, kurulum ve teknik destek tek bir noktada.
         </Typography>
-        <Box sx={{ paddingTop: 15 }}>
+        <Box sx={{ paddingTop: { xs: 3, sm:6, md: 12, xl:15} }}>
           <Stack direction="row" spacing={5}>
             <Button
               variant="contained"
@@ -60,12 +60,8 @@ function VideoBackground() {
               Çalışmalarımız
             </Button>
             <Button
-              variant="outlined"
+              variant="contained"
               size="large"
-              sx={{
-                
-                "&:hover": { backgroundColor: "#1976d2", color:'#ffffff' }
-              }}
             >
               Teklif Al
             </Button>

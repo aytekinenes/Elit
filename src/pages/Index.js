@@ -9,7 +9,7 @@ const Index = () => {
             <div id="home">
                 <Home />
             </div>
-            <div id="services" style={{ paddingTop:180 }}>
+            <div id="services">
                 <Services/>
             </div>
         </>

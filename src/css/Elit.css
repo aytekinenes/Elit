@@ -1,0 +1,91 @@
+@media (max-width: 600px) {
+  .MuiTypography-h2 {
+    font-size: 3rem !important;
+  }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .MuiTypography-h2 {
+    font-size: 3.3rem !important;
+  }
+}
+@media (min-width: 901px) {
+  .MuiTypography-h2 {
+    font-size: 3.75rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .MuiTypography-h5 {
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .MuiTypography-h5 {
+    font-size: 1.3rem !important;
+  }
+}
+@media (min-width: 901px) {
+  .MuiTypography-h5 {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .MuiTypography-h6 {
+    font-size: 0.85rem !important;
+  }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .MuiTypography-h6 {
+    font-size: 1.05rem !important;
+  }
+}
+@media (min-width: 901px) {
+  .MuiTypography-h6 {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Body yazısı */
+.MuiTypography-body2 {
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  .MuiTypography-body2 {
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .MuiTypography-body2 {
+    font-size: 0.85rem;
+  }
+}
+@media (min-width: 901px) {
+  .MuiTypography-body2 {
+    font-size: 1rem;
+  }
+}
+
+/* Button */
+.MuiTypography-button {
+  text-transform: none;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .MuiTypography-button {
+    font-size: 0.65rem;
+  }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .MuiTypography-button {
+    font-size: 0.75rem;
+  }
+}
+@media (min-width: 901px) {
+  .MuiTypography-button {
+    font-size: 0.85rem;
+  }
+}
+
