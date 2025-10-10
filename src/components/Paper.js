@@ -15,17 +15,12 @@ const Paper = (props) => {
                 overflow: "hidden",
             }}
         >
-            <CardMedia
-                sx={{ height: "45%", objectFit: "cover", opacity: 0.8 }}
-                image={props.image}
-                title={props.title}
-
-            />
+            {childrenArray[0]}
             <CardContent>
-                {childrenArray[0]}
+                {childrenArray[1]}
             </CardContent>
             <CardActions>
-                {childrenArray[1]}
+                {childrenArray[2]}
             </CardActions>
         </MIPaper>
     );

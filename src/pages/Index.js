@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Home from "./Home";
 import Services from "./Services";
-import { Container } from "@mui/material";
+import Working from "./Working";
+import Calculator from './Calculator'
 
 const Index = () => {
     return (
@@ -10,7 +11,13 @@ const Index = () => {
                 <Home />
             </div>
             <div id="services">
-                <Services/>
+                <Services />
+            </div>
+            <div id="working">
+                <Working />
+            </div>
+            <div id="calculator">
+                <Calculator/>
             </div>
         </>
     );

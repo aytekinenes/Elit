@@ -56,7 +56,7 @@ function AppBar() {
         <AppBarMi position="fixed">
             <Container maxWidth="md">
                 <Toolbar disableGutters sx={{
-                    minHeight: 64, // AppBar yüksekliğini sabit tut
+                    minHeight: 64,
                     height: 64,
                     display: 'flex',
                     alignItems: 'center',
@@ -90,15 +90,27 @@ function AppBar() {
                             sx={{ display: { xs: 'block', md: 'none' } }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page.name} onClick={() => handleCloseNavMenu(page.url)}>
-                                    <Typography sx={{ textAlign: 'center' }}>{page.name}</Typography>
+                                <MenuItem key={page.name} onClick={() => handleCloseNavMenu(null)}>
+                                    <ScrollLink
+                                        to={page.url}
+                                        smooth={true}
+                                        duration={600}
+                                        offset={-70}
+                                        spy={true}
+                                    >
+                                        <Typography sx={{ textAlign: 'center' }}>{page.name}</Typography>
+                                    </ScrollLink>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
                     <Typography sx={{ flexGrow: { xs: 1, md: 0 }, paddingTop: 1 }}>
-                        <Link
-                            to="/"
+                        <Button
+                            to="home"
+                            component={ScrollLink}
+                            smooth={true}
+                            duration={600}
+                            offset={-70}
                             style={{
                                 display: 'inline-block',
                                 textDecoration: 'none'
@@ -114,7 +126,7 @@ function AppBar() {
                                     backgroundPosition: 'center'
                                 }}
                             />
-                        </Link>
+                        </Button>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
