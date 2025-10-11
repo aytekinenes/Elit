@@ -15,7 +15,6 @@ const Working = () => {
                     flexWrap: 'wrap',
                     gap: 2,
                     justifyContent: "space-between",
-                    paddingInline: 1,
                     paddingTop: 10
                 }}
             >
@@ -72,7 +71,6 @@ const Working = () => {
                     flexWrap: 'wrap',
                     gap: 2,
                     justifyContent: "space-between",
-                    paddingInline: 1,
                     paddingTop: 10
                 }}
             >
@@ -118,7 +116,6 @@ const Working = () => {
                     flexWrap: 'wrap',
                     gap: 2,
                     justifyContent: "space-between",
-                    paddingInline: 1,
                     paddingTop: 10
                 }}
             >
@@ -158,14 +155,12 @@ const Working = () => {
                     </>
                 </Paper>
             </Box>
-
             <Box
                 sx={{
                     display: 'flex',
                     flexWrap: 'wrap',
                     gap: 2,
                     justifyContent: "space-between",
-                    paddingInline: 1,
                     paddingTop: 10
                 }}
             >

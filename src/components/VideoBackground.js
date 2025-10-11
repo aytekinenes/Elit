@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, Button, Stack } from "@mui/material";
+import { Link as ScrollLink } from 'react-scroll';
 
 function VideoBackground() {
   return (
@@ -51,17 +52,27 @@ function VideoBackground() {
         <Typography variant="h6">
           Tasarım, üretim, kurulum ve teknik destek tek bir noktada.
         </Typography>
-        <Box sx={{ paddingTop: { xs: 3, sm:6, md: 12, xl:15} }}>
+        <Box sx={{ paddingTop: { xs: 3, sm: 6, md: 12, xl: 15 } }}>
           <Stack direction="row" spacing={5}>
             <Button
               variant="contained"
               size="large"
+              to="calismalarimiz"
+              component={ScrollLink}
+              smooth={true}
+              duration={600}
+              offset={-70}
             >
               Çalışmalarımız
             </Button>
             <Button
               variant="contained"
               size="large"
+              to="teklifal"
+              component={ScrollLink}
+              smooth={true}
+              duration={600}
+              offset={-70}
             >
               Teklif Al
             </Button>

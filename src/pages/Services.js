@@ -15,7 +15,6 @@ const Services = () => {
                     flexWrap: 'wrap',
                     gap: 2,
                     justifyContent: "space-between",
-                    paddingInline: 1,
                     paddingTop: 10
                 }}
             >
@@ -24,7 +23,7 @@ const Services = () => {
                         <CardMedia image='/images/modul_tamir.png' title='LED Modül Tamiri' />
                     </>
                     <>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h5">
                             LED Modül Tamiri
                         </Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -51,7 +50,7 @@ const Services = () => {
                         <CardMedia image='/images/led_ekspertiz.png' title='Ekspertiz & Fiyatlandırma' />
                     </>
                     <>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h5">
                             Ekspertiz & Fiyatlandırma
                         </Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -70,7 +69,7 @@ const Services = () => {
                     </>
                     <>
                         <Box sx={{ p: 1, backgroundColor: '#fff7cc' }}>
-                            <Typography gutterBottom variant="h6" component="div">
+                            <Typography gutterBottom variant="h6"  >
                                 Not: Bazı durumlarda keşif ücreti talep edilebilir; fiyattan düşülür.
                             </Typography>
                         </Box>
@@ -83,7 +82,6 @@ const Services = () => {
                     flexWrap: 'wrap',
                     gap: 2,
                     justifyContent: "space-between",
-                    paddingInline: 1,
                     paddingTop: 10
                 }}
             >
@@ -92,7 +90,7 @@ const Services = () => {
                         <CardMedia image='/images/montaj_kurulum.png' title='Montaj & Kurulum' />
                     </>
                     <>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h5" >
                             Montaj & Kurulum
                         </Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -115,7 +113,7 @@ const Services = () => {
                         <CardMedia image='/images/Kontrol_Kartı_Programlama.png' title='Kontrol Kartı Programlama' />
                     </>
                     <>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h5"  >
                             Kontrol Kartı Programlama
                         </Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -140,7 +138,6 @@ const Services = () => {
                     flexWrap: 'wrap',
                     gap: 2,
                     justifyContent: "space-between",
-                    paddingInline: 1,
                     paddingTop: 10
                 }}
             >
@@ -149,7 +146,7 @@ const Services = () => {
                         <CardMedia image='/images/bakım_temizlik.png' title='Periyodik Bakım & Temizlik' />
                     </>
                     <>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h5"  >
                             Periyodik Bakım & Temizlik
                         </Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -172,7 +169,7 @@ const Services = () => {
                         <CardMedia image='/images/destek.png' title='Acil Onarım (7/24)' />
                     </>
                     <>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h5"  >
                             Acil Onarım (7/24)
                         </Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -196,7 +193,6 @@ const Services = () => {
                     display: 'flex',
                     flexWrap: 'wrap',
                     gap: 1,
-                    paddingInline: 1,
                     paddingTop: 10
                 }}
             >

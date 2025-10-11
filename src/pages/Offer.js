@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import {
-    Box,
-    Button,
-    TextField,
-    MenuItem,
-    Typography,
-    Container,
-    Grid
-} from "@mui/material";
+import { Box, Button, TextField, MenuItem, Typography, Container, Grid } from "@mui/material";
 
 const validationSchema = Yup.object({
     useArea: Yup.string().required('Kullanım Alanı seçiniz.'),
@@ -18,18 +10,177 @@ const validationSchema = Yup.object({
 });
 
 const initialValues = {
-    useArea: '',
-    screenType: '',
-    safeType: '',
-    viewingDistance: null,
-    pixel: '',
-    width: '',
-    height: ''
+    useArea: 'inner',
+    screenType: '1',
+    safeType: '1',
+    pixel: 'p2.5',
+    width: 32,
+    height: 16
 };
 
-export default function ContactForm() {
+const modulWidth = 32;
+const modulHeight = 16;
+
+const modul =
+{
+    inner: [
+        {
+            text: 'P1.86',
+            value: 'p1.86',
+            price: 36,
+            pixel: {
+                width: 172,
+                height: 86
+            }
+        },
+        {
+            selected: true,
+            text: 'P2.5 (Önerilen)',
+            value: 'p2.5',
+            price: 15.5,
+            pixel: {
+                width: 128,
+                height: 64
+            }
+        },
+        {
+            text: 'P3',
+            value: 'P3',
+            price: 12.5,
+            pixel: {
+                width: 104,
+                height: 52
+            }
+        },
+        {
+            price: 10,
+            text: 'P4',
+            value: 'p4',
+            pixel: {
+                width: 80,
+                height: 40
+            }
+        }
+    ],
+    outer: [
+        {
+            price: 36,
+            text: 'P2.5',
+            value: 'p2.5',
+            pixel: {
+                width: 128,
+                height: 64
+            }
+        },
+        {
+            selected: true,
+            price: 24,
+            text: 'P3 (Önerilen)',
+            value: 'p3',
+            pixel: {
+                width: 104,
+                height: 52
+            }
+        },
+        {
+            text: 'P4',
+            value: 'p4',
+            price: 15,
+            pixel: {
+                width: 80,
+                height: 40
+            }
+        },
+        {
+            text: 'P5',
+            value: 'p5',
+            price: 11,
+            pixel: {
+                width: 64,
+                height: 32
+            }
+        },
+        {
+            text: 'P8',
+            value: 'p8',
+            price: 9,
+            pixel: {
+                width: 32,
+                height: 16
+            }
+        },
+        {
+            text: 'P10',
+            value: 'p10',
+            price: 8,
+            pixel: {
+                width: 32,
+                height: 16
+            }
+        }
+    ]
+}
+
+const players = [
+    { name: "HD-A3L SDK'LI", maxPixel: 655360, price: 85 },
+    { name: 'HD-A5L', maxPixel: 1310720, price: 175 },
+    { name: 'HD-A6L', maxPixel: 2304000, price: 285 },
+    { name: 'HD-A7', maxPixel: 5160960, price: 1400 },
+    { name: 'HD-A8', maxPixel: 8294400, price: 1975 }
+];
+
+function selectedUseArea(useArea) {
+    const selectetValue = modul[useArea].map((m) => {
+        return { value: m.value, text: m.text, selected: m.selected }
+    })
+    return selectetValue;
+}
+
+export default function Offer() {
+    const [pixelList, setPixel] = useState(selectedUseArea(initialValues.useArea));
+    const [playerNote, setPlayerNote] = useState('');
+
+    function calculator(data) {
+        var modulX = Math.ceil(data.width / modulWidth);
+        var modulY = Math.ceil(data.height / modulHeight);
+        var modulInfo = modul[data.useArea];
+        var selectdModul = {};
+        modulInfo.map((m) => {
+            if (m.value === data.pixel) {
+                selectdModul = m;
+            }
+        })
+        var totalPixelX = modulX * selectdModul.pixel.width;
+        var totalPixelY = modulY * selectdModul.pixel.height;
+        var screenTotalPiksel = totalPixelX * totalPixelY;
+        var selectedPlayer = null;
+        players.some(p => {
+            if (p.maxPixel >= screenTotalPiksel) {
+                selectedPlayer = p;
+                return true;
+            }
+        });
+        if (!selectedPlayer) {
+            selectedPlayer = players[players.length - 1];
+            setPlayerNote(' <small>(Çözünürlük Çok Yüksek!)</small>')
+        }
+        var playerPrice = selectedPlayer.price;
+        var playerNme = selectedPlayer.name;
+
+        var toplamGenislikMetre = (modulX * modulWidth) / 100;
+        var toplamYukseklikMetre = (modulY * modulHeight) / 100;
+        var toplamAlanMetrekare = toplamGenislikMetre * toplamYukseklikMetre;
+        var toplamModul = modulX * modulY;
+        var modulBirimFiyat = selectdModul.price;
+        var modulToplamFiyat = toplamModul * modulBirimFiyat;
+        var adaptorSayisi = Math.ceil(toplamModul / 6);
+        //var adaptorBirimFiyat = alan === "ic" ? PRICES.adapters.ic_40a : PRICES.adapters.dis_60a;
+    }
     return (
-        <Container maxWidth='xl' sx={{ paddingTop: 10 }}>
+        <Box sx={{ paddingTop: 10 }}>
+            <Typography variant="h4" gutterBottom align="center">
+                Teklif Al
+            </Typography>
             <Typography variant="h5" gutterBottom align="center">
                 Profesyonel LED Ekran Fiyat Hesaplama (USD)
             </Typography>
@@ -46,11 +197,11 @@ export default function ContactForm() {
                     initialValues={initialValues}
                     validationSchema={validationSchema}
                     onSubmit={(values, { resetForm }) => {
-                        console.log("Form gönderildi:", values);
-                        resetForm();
+                        calculator(values);
+                        //resetForm();
                     }}
                 >
-                    {({ errors, touched, handleChange, values }) => (
+                    {({ errors, touched, handleChange, values, setFieldValue }) => (
                         <Form>
                             <TextField
                                 select
@@ -58,14 +209,26 @@ export default function ContactForm() {
                                 label="Kullanım Alanı"
                                 name="useArea"
                                 value={values.useArea}
-                                onChange={handleChange}
+                                onChange={(e) => {
+                                    handleChange(e);
+                                    const pixelSelectedList = selectedUseArea(e.target.value);
+                                    setPixel(pixelSelectedList)
+                                    var valid = '';
+                                    pixelSelectedList.map(
+                                        (x) => {
+                                            if (x.selected) {
+                                                valid = x.value
+                                            }
+                                        }
+                                    );
+                                    setFieldValue("pixel", valid);
+                                }}
                                 error={touched.useArea && Boolean(errors.useArea)}
                                 helperText={touched.useArea && errors.useArea}
                                 margin="normal"
                             >
-                                <MenuItem value='' disabled>Seçiniz</MenuItem>
-                                <MenuItem value='1'>İç Mekan</MenuItem>
-                                <MenuItem value='2'>Dış Mekan</MenuItem>
+                                <MenuItem value='inner'>İç Mekan</MenuItem>
+                                <MenuItem value='outer'>Dış Mekan</MenuItem>
                             </TextField>
 
                             <TextField
@@ -79,7 +242,6 @@ export default function ContactForm() {
                                 helperText={touched.screenType && errors.screenType}
                                 margin="normal"
                             >
-                                <MenuItem value='' disabled>Seçiniz</MenuItem>
                                 <MenuItem value='1'>Duvara Monte</MenuItem>
                                 <MenuItem value='2'>Ayaklı Stand (Poster)</MenuItem>
                             </TextField>
@@ -95,23 +257,9 @@ export default function ContactForm() {
                                 helperText={touched.safeType && errors.safeType}
                                 margin="normal"
                             >
-                                <MenuItem value='' disabled>Seçiniz</MenuItem>
                                 <MenuItem value='1'>Tek Taraflı</MenuItem>
                                 <MenuItem value='2'>Çift Taraflı</MenuItem>
                             </TextField>
-
-                            <TextField
-                                fullWidth
-                                label="İzleme Mesafesi (metre)"
-                                name="viewingDistance"
-                                type='number'
-                                value={values.viewingDistance}
-                                onChange={handleChange}
-                                error={touched.viewingDistance && Boolean(errors.viewingDistance)}
-                                helperText={touched.viewingDistance && errors.viewingDistance}
-                                margin="normal"
-                                inputProps={{ min: 1 }}
-                            />
 
                             <TextField
                                 select
@@ -124,11 +272,11 @@ export default function ContactForm() {
                                 helperText={touched.pixel && errors.pixel}
                                 margin="normal"
                             >
-                                <MenuItem value='' disabled>Seçiniz</MenuItem>
-                                <MenuItem value='1'>P1.86</MenuItem>
-                                <MenuItem value='2'>P2.5 (Önerilen)</MenuItem>
-                                <MenuItem value='3'>P3</MenuItem>
-                                <MenuItem value='4'>P4</MenuItem>
+                                {pixelList.map((pixel) => (
+                                    <MenuItem key={pixel.value} value={pixel.value} selected={pixel.selected}>
+                                        {pixel.text}
+                                    </MenuItem>
+                                ))}
                             </TextField>
 
                             <Typography variant="subtitle1">
@@ -148,9 +296,8 @@ export default function ContactForm() {
                                         helperText={touched.width && errors.width}
                                         margin="normal"
                                     >
-                                        <MenuItem value='' disabled>Seçiniz</MenuItem>
                                         {Array.from({ length: 30 }, (_, i) => (
-                                            <MenuItem key={i + 1} value= {`${i + 1}`}>
+                                            <MenuItem key={i + 1} value={(i + 1) * 32}>
                                                 {(i + 1) * 32} cm
                                             </MenuItem>
                                         ))}
@@ -169,9 +316,8 @@ export default function ContactForm() {
                                         helperText={touched.height && errors.height}
                                         margin="normal"
                                     >
-                                        <MenuItem value='' disabled>Seçiniz</MenuItem>
                                         {Array.from({ length: 60 }, (_, i) => (
-                                            <MenuItem key={i + 1} value={`${i + 1}`}>
+                                            <MenuItem key={i + 1} value={(i + 1) * 16}>
                                                 {(i + 1) * 16} cm
                                             </MenuItem>
                                         ))}
@@ -182,16 +328,16 @@ export default function ContactForm() {
                             <Button
                                 type="submit"
                                 variant="contained"
-                                color="primary"
+                                color="success"
                                 fullWidth
                                 sx={{ mt: 2 }}
                             >
-                                Gönder
+                                Fiyat Hesapla
                             </Button>
                         </Form>
                     )}
                 </Formik>
             </Box>
-        </Container>
+        </Box>
     );
 }

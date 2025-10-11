@@ -9,19 +9,19 @@ import { Link as ScrollLink } from 'react-scroll';
 const pages = [
     {
         name: 'Anasayfa',
-        url: 'home'
+        url: 'anasayfa'
     },
     {
         name: 'Hizmetlerimiz',
-        url: 'services'
+        url: 'hizmetlerimiz'
     },
     {
-        name: 'Çalışmalar',
-        url: 'working'
+        name: 'Çalışmalarımız',
+        url: 'calismalarimiz'
     },
     {
-        name: 'Hesapla',
-        url: 'calculator'
+        name: 'Teklif Al',
+        url: 'teklifal'
     },
     {
         name: 'Blog',
@@ -54,7 +54,7 @@ function AppBar() {
 
     return (
         <AppBarMi position="fixed">
-            <Container maxWidth="md">
+            <Container maxWidth="lg">
                 <Toolbar disableGutters sx={{
                     minHeight: 64,
                     height: 64,
@@ -94,8 +94,8 @@ function AppBar() {
                                     <ScrollLink
                                         to={page.url}
                                         smooth={true}
-                                        duration={600}
-                                        offset={-70}
+                                        duration={800}
+                                        offset={0}
                                         spy={true}
                                     >
                                         <Typography sx={{ textAlign: 'center' }}>{page.name}</Typography>
@@ -104,9 +104,9 @@ function AppBar() {
                             ))}
                         </Menu>
                     </Box>
-                    <Typography sx={{ flexGrow: { xs: 1, md: 0 }, paddingTop: 1 }}>
+                    <Typography sx={{ flexGrow: { xs: 1, md: 0 }, paddingTop: 0 }}>
                         <Button
-                            to="home"
+                            to="anasayfa"
                             component={ScrollLink}
                             smooth={true}
                             duration={600}
