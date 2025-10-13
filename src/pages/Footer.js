@@ -37,7 +37,7 @@ const Footer = () => {
             <Box paddingTop={2} >
                 <Grid container spacing={2} justifyContent='center'>
                     <Box>
-                        <Button className="instagram" startIcon={<InstagramIcon />} href="https://instagram.com/elitled" target="_blank">Instagram</Button>
+                        <Button className="instagram" startIcon={<InstagramIcon />} href="https://instagram.com/ledsys.com.tr?igsh=YXB2anVmOWdxemF2" target="_blank">Instagram</Button>
                     </Box>
                     <Box>
                         <Button variant="contained" startIcon={<LinkedInIcon />} href="https://www.linkedin.com/company/elitled" target="_blank">LinkedIn</Button>

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, Button, Stack } from "@mui/material";
 import { Link as ScrollLink } from 'react-scroll';
+import { getDeviceType } from '../helpers/device';
+const deviceType = getDeviceType();
 
 function VideoBackground() {
+  const [isMobil, setIsmobil] = useState(deviceType === 'Mobil' || deviceType === 'Tablet');
   return (
     <Box
       sx={{
@@ -74,7 +77,7 @@ function VideoBackground() {
               duration={600}
               offset={-70}
             >
-              Teklif Al
+              {isMobil?'WhatsApp Üzerinden Teklif Al':'Teklif Al'}
             </Button>
           </Stack>
         </Box>

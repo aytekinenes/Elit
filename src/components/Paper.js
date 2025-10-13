@@ -13,6 +13,7 @@ const Paper = (props) => {
                 minHeight: { xs: '550px', sm: '550px' },
                 position: "relative",
                 overflow: "hidden",
+                ...props.sx
             }}
         >
             {childrenArray[0]}
