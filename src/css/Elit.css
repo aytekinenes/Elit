@@ -89,3 +89,7 @@
   }
 }
 
+.instagram {
+    color: #fff !important;
+    background: radial-gradient(30% 30% at 30% 30%, #fff 0%, #fff0 60%), linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Paper from "../components/Paper";
-import { Box, Typography, Button, Container } from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
 import '../css/Elit.css'
 import { TelButton, MailButton } from '../components/Button';
 import CardMedia from "../components/CardMedia";
@@ -8,14 +8,19 @@ import SeviceProcess from '../components/ServiceProcess'
 
 const Working = () => {
     return (
-        <Box>
+        <Box paddingTop={8}>
+            <Grid size={12} justifyContent='center' alignItems='center' textAlign='center'>
+                <Typography variant="h2">
+                    Çalışmalarımız
+                </Typography>
+            </Grid>
             <Box
                 sx={{
                     display: 'flex',
                     flexWrap: 'wrap',
                     gap: 2,
                     justifyContent: "space-between",
-                    paddingTop: 10
+                    paddingTop: 2
                 }}
             >
                 <Paper>

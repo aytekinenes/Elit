@@ -29,7 +29,7 @@ const pages = [
     },
     {
         name: 'İletişim',
-        url: 'contact'
+        url: 'iletisim'
     }];
 
 function AppBar() {
@@ -95,7 +95,7 @@ function AppBar() {
                                         to={page.url}
                                         smooth={true}
                                         duration={800}
-                                        offset={0}
+                                        offset={-70}
                                         spy={true}
                                     >
                                         <Typography sx={{ textAlign: 'center' }}>{page.name}</Typography>
